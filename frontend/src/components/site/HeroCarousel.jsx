@@ -1,11 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  ArrowUpRight,
-  ShieldCheck,
-  Globe2,
-  FlaskConical,
-} from "lucide-react";
+import { ArrowUpRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function HeroCarousel({ slides }) {
   const [index, setIndex] = useState(0);
@@ -20,157 +15,135 @@ export default function HeroCarousel({ slides }) {
 
   if (!slides?.length) return null;
   const slide = slides[index];
+  const total = slides.length;
+
+  const next = () => setIndex((i) => (i + 1) % total);
+  const prev = () => setIndex((i) => (i - 1 + total) % total);
 
   return (
     <section
       id="home"
       data-testid="hero-section"
-      className="relative overflow-hidden bg-white"
+      className="relative bg-[#12233D] overflow-hidden"
     >
-      {/* background pattern */}
-      <div className="absolute inset-0 subtle-grid opacity-50 pointer-events-none" />
-      <div className="absolute -top-32 -right-32 w-[520px] h-[520px] rounded-full bg-[#62C7F5]/10 blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-32 -left-32 w-[420px] h-[420px] rounded-full bg-[#0738A6]/10 blur-3xl pointer-events-none" />
+      <div className="relative h-[78vh] min-h-[560px] max-h-[760px] w-full">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={slide.id}
+            initial={{ opacity: 0, scale: 1.04 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute inset-0"
+          >
+            <img
+              src={slide.image_url}
+              alt={slide.headline}
+              className="w-full h-full object-cover"
+            />
+            {/* Layered overlays for premium readability */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#12233D]/85 via-[#12233D]/60 to-[#12233D]/20" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#12233D]/70 via-transparent to-transparent" />
+            <div className="absolute inset-0 dot-grid opacity-25 mix-blend-overlay" />
+          </motion.div>
+        </AnimatePresence>
 
-      <div className="container-x relative grid lg:grid-cols-12 gap-10 lg:gap-16 py-16 md:py-24 lg:py-28 items-center">
-        {/* Left content */}
-        <div className="lg:col-span-7 relative">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={slide.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#F7FAFD] border border-[#E9EEF5] mb-7">
-                <span className="w-2 h-2 rounded-full bg-[#9DCD4A] animate-shine" />
-                <span className="eyebrow text-[11px]">{slide.eyebrow}</span>
-              </div>
-
-              <h1
-                data-testid="hero-headline"
-                className="font-display font-bold text-[#12233D] text-4xl sm:text-5xl lg:text-[58px] leading-[1.05] tracking-tight"
+        {/* Content */}
+        <div className="relative h-full container-x flex items-center">
+          <div className="max-w-3xl text-white">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={slide.id + "-text"}
+                initial={{ opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.7, delay: 0.15 }}
               >
-                {slide.headline}
-              </h1>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm mb-6">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#9DCD4A] animate-shine" />
+                  <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-white/90">
+                    {slide.eyebrow}
+                  </span>
+                </div>
 
-              <p
-                data-testid="hero-subheadline"
-                className="mt-6 text-[#4B5563] text-base md:text-lg max-w-2xl leading-relaxed"
-              >
-                {slide.subheadline}
-              </p>
-
-              <div className="mt-9 flex flex-wrap items-center gap-4">
-                <a
-                  data-testid="hero-primary-cta"
-                  href={slide.cta_link || "#contact"}
-                  className="btn-primary"
+                <h1
+                  data-testid="hero-headline"
+                  className="font-display font-semibold text-white text-[28px] sm:text-[34px] lg:text-[44px] xl:text-[48px] leading-[1.1] tracking-tight max-w-2xl"
                 >
-                  {slide.cta_label}
-                  <ArrowUpRight className="w-4 h-4" />
-                </a>
-                <a
-                  data-testid="hero-secondary-cta"
-                  href="#why"
-                  className="btn-secondary"
-                >
-                  Why Shobha
-                </a>
-              </div>
-            </motion.div>
-          </AnimatePresence>
+                  {slide.headline}
+                </h1>
 
-          {/* trust mini bar */}
-          <div className="mt-12 grid grid-cols-3 gap-4 max-w-lg">
-            {[
-              { icon: ShieldCheck, label: "EU-GMP Aligned" },
-              { icon: FlaskConical, label: "WHO-GMP Quality" },
-              { icon: Globe2, label: "15+ Countries" },
-            ].map((t) => (
-              <div
-                key={t.label}
-                className="flex flex-col items-start gap-2 pl-3 border-l border-[#E9EEF5]"
-              >
-                <t.icon className="w-5 h-5 text-[#0738A6]" />
-                <span className="text-[12px] font-semibold text-[#12233D] tracking-wide leading-tight">
-                  {t.label}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {/* Slide indicators */}
-          <div className="mt-10 flex items-center gap-3">
-            {slides.map((s, i) => (
-              <button
-                key={s.id}
-                data-testid={`hero-indicator-${i}`}
-                onClick={() => setIndex(i)}
-                className="group flex items-center gap-2"
-                aria-label={`Go to slide ${i + 1}`}
-              >
-                <span
-                  className={`block h-[3px] rounded-full transition-all duration-500 ${
-                    i === index
-                      ? "w-12 bg-[#0738A6]"
-                      : "w-6 bg-[#E9EEF5] group-hover:bg-[#62C7F5]"
-                  }`}
-                />
-                <span
-                  className={`text-[11px] font-semibold uppercase tracking-widest transition-colors ${
-                    i === index ? "text-[#0738A6]" : "text-[#4B5563]/60"
-                  }`}
+                <p
+                  data-testid="hero-subheadline"
+                  className="mt-5 text-white/80 text-[15px] md:text-[16.5px] max-w-xl leading-relaxed"
                 >
-                  0{i + 1}
-                </span>
-              </button>
-            ))}
+                  {slide.subheadline}
+                </p>
+
+                <div className="mt-8 flex flex-wrap items-center gap-3">
+                  <a
+                    data-testid="hero-primary-cta"
+                    href={slide.cta_link || "#contact"}
+                    className="btn-primary !bg-white !text-[#0738A6] hover:!bg-[#F7FAFD]"
+                  >
+                    {slide.cta_label}
+                    <ArrowUpRight className="w-4 h-4" />
+                  </a>
+                  <a
+                    data-testid="hero-secondary-cta"
+                    href="#contact"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full border-2 border-white/40 text-white font-semibold hover:bg-white/10 transition-all text-sm"
+                  >
+                    Partner With Us
+                  </a>
+                </div>
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
 
-        {/* Right visual */}
-        <div className="lg:col-span-5 relative">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={slide.id}
-              initial={{ opacity: 0, scale: 0.97 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.97 }}
-              transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="relative"
+        {/* Arrow controls */}
+        <div className="absolute bottom-7 right-6 md:right-10 z-10 flex items-center gap-2">
+          <button
+            data-testid="hero-prev"
+            onClick={prev}
+            className="w-11 h-11 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white/15 transition-colors backdrop-blur-sm"
+            aria-label="Previous slide"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            data-testid="hero-next"
+            onClick={next}
+            className="w-11 h-11 rounded-full border border-white/30 text-white flex items-center justify-center hover:bg-white/15 transition-colors backdrop-blur-sm"
+            aria-label="Next slide"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Indicators bottom-left */}
+        <div className="absolute bottom-7 left-6 md:left-10 z-10 flex items-center gap-3">
+          {slides.map((s, i) => (
+            <button
+              key={s.id}
+              data-testid={`hero-indicator-${i}`}
+              onClick={() => setIndex(i)}
+              className="group flex items-center gap-2"
+              aria-label={`Go to slide ${i + 1}`}
             >
-              <div className="relative aspect-[4/5] rounded-[28px] overflow-hidden shadow-[0_30px_80px_rgba(7,56,166,0.18)]">
-                <img
-                  src={slide.image_url}
-                  alt={slide.headline}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#12233D]/30 via-transparent to-transparent" />
-              </div>
-
-              {/* floating chip */}
-              <div className="absolute -left-6 bottom-8 bg-white rounded-2xl border border-[#E9EEF5] shadow-xl p-4 flex items-center gap-3 animate-float-slow">
-                <div className="w-10 h-10 rounded-xl bg-[#0738A6]/10 flex items-center justify-center">
-                  <ShieldCheck className="w-5 h-5 text-[#0738A6]" />
-                </div>
-                <div>
-                  <div className="text-[11px] uppercase tracking-widest text-[#4B5563] font-semibold">
-                    Quality Backed
-                  </div>
-                  <div className="text-[#12233D] font-semibold text-sm">
-                    GMP Manufacturing
-                  </div>
-                </div>
-              </div>
-
-              {/* gold badge */}
-              <div className="absolute -top-5 right-6 bg-[#F2C14E] text-[#12233D] rounded-full px-4 py-2 text-xs font-bold tracking-wider shadow-lg">
-                EST. DUBAI · UAE
-              </div>
-            </motion.div>
-          </AnimatePresence>
+              <span
+                className={`block h-[3px] rounded-full transition-all duration-500 ${
+                  i === index
+                    ? "w-10 bg-white"
+                    : "w-5 bg-white/40 group-hover:bg-white/70"
+                }`}
+              />
+            </button>
+          ))}
+          <span className="text-white/70 text-[11px] font-semibold tracking-widest ml-2">
+            0{index + 1} / 0{total}
+          </span>
         </div>
       </div>
     </section>
