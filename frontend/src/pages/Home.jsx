@@ -5,10 +5,10 @@ import TrustStrip from "../components/site/TrustStrip";
 import AboutSection from "../components/site/AboutSection";
 import WhatWeMake from "../components/site/WhatWeMake";
 import ProductRange from "../components/site/ProductRange";
+import FounderStory from "../components/site/FounderStory";
 import WhatSetsApart from "../components/site/WhatSetsApart";
 import QualityProcess from "../components/site/QualityProcess";
 import NutraceuticalsSection from "../components/site/NutraceuticalsSection";
-import FounderStory from "../components/site/FounderStory";
 import PartnersSection from "../components/site/PartnersSection";
 import GhanaNetwork from "../components/site/GhanaNetwork";
 import GlobalCountries from "../components/site/GlobalCountries";
@@ -35,10 +35,10 @@ export default function Home() {
       <AboutSection />
       <WhatWeMake />
       <ProductRange />
+      <FounderStory />
       <WhatSetsApart />
       <QualityProcess />
       <NutraceuticalsSection />
-      <FounderStory />
       <PartnersSection />
       <GhanaNetwork />
       <GlobalCountries />

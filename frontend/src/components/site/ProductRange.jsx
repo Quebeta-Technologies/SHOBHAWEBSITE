@@ -13,6 +13,7 @@ const products = [
     desc:
       "Inhaled corticosteroid for mild asthma maintenance. Three strengths available — clinicians choose the right dose for each patient.",
     color: "#62C7F5",
+    image: "/brand/bd-asma.png",
   },
   {
     cat: "MDI Inhaler",
@@ -72,7 +73,7 @@ export default function ProductRange() {
     <section
       id="products"
       data-testid="product-range"
-      className="py-20 md:py-28 bg-white"
+      className="py-12 md:py-16 bg-white"
     >
       <div className="container-x">
         <div className="grid lg:grid-cols-12 gap-8 items-end mb-10">
@@ -122,12 +123,20 @@ export default function ProductRange() {
               className="card-hover bg-white border border-[#E9EEF5] rounded-2xl p-7 flex flex-col"
             >
               <div className="aspect-[4/3] rounded-xl mb-5 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-[#F7FAFD] to-[#E9EEF5]">
-                <div
-                  className="w-20 h-20 rounded-2xl flex items-center justify-center"
-                  style={{ background: `${p.color}1A` }}
-                >
-                  <Pill className="w-9 h-9" style={{ color: p.color }} />
-                </div>
+                {p.image ? (
+                  <img
+                    src={p.image}
+                    alt={p.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                ) : (
+                  <div
+                    className="w-20 h-20 rounded-2xl flex items-center justify-center"
+                    style={{ background: `${p.color}1A` }}
+                  >
+                    <Pill className="w-9 h-9" style={{ color: p.color }} />
+                  </div>
+                )}
                 <span
                   className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full text-white"
                   style={{ background: p.color }}

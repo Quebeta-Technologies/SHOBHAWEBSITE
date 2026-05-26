@@ -30,7 +30,7 @@ export default function Footer() {
       data-testid="site-footer"
       className="bg-[#12233D] text-[#E9EEF5] relative"
     >
-      <div className="container-x py-16 grid lg:grid-cols-12 gap-12">
+      <div className="container-x py-12 grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-4">
           <div className="bg-white border border-white/10 rounded-2xl p-5 inline-flex">
             <Logo className="h-12 w-auto" />
@@ -93,18 +93,14 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="container-x py-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-white/55 text-[12.5px]">
           <div>© 2026 Shobha Healthcare F.Z.E. All Rights Reserved.</div>
-          <div className="flex items-center gap-5">
-            <span className="inline-flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#9DCD4A]" />
-              EU-GMP Certified
+          <div className="inline-flex items-center gap-1.5">
+            Made with
+            <span className="text-[#E84D6C] text-base leading-none" aria-label="love">
+              ❤
             </span>
-            <span className="inline-flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#62C7F5]" />
-              WHO-GMP Compliant
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#F2C14E]" />
-              GDP Logistics
+            from
+            <span className="font-display font-semibold text-white tracking-tight">
+              Quebeta
             </span>
           </div>
         </div>

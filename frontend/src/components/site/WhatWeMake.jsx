@@ -42,7 +42,7 @@ export default function WhatWeMake() {
     <section
       id="what-we-make"
       data-testid="what-we-make"
-      className="py-20 md:py-28 bg-[#F7FAFD] relative overflow-hidden"
+      className="py-12 md:py-16 bg-[#F7FAFD] relative overflow-hidden"
     >
       <div className="absolute -top-32 left-1/4 w-[400px] h-[400px] rounded-full bg-[#0738A6]/[0.04] blur-3xl pointer-events-none" />
 

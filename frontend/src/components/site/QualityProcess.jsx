@@ -4,57 +4,61 @@ import { motion, AnimatePresence } from "framer-motion";
 const steps = [
   {
     color: "#0738A6",
-    title: "Ingredient Sourcing",
-    short: "Sourcing & Supplier Qualification",
+    title: "Sourcing",
+    short: "Ingredient Sourcing & Supplier Qualification",
     desc:
       "Approved, validated suppliers only. Every raw material tested with a Certificate of Analysis before entering the supply chain.",
   },
   {
     color: "#9DCD4A",
-    title: "Internal QA Review",
-    short: "QA & Dossier Review",
+    title: "QA Review",
+    short: "Internal QA & Dossier Review",
     desc:
       "Full chemical and microbiological review of every batch dossier. Production begins only after complete QA sign-off.",
   },
   {
     color: "#F2C14E",
-    title: "GMP Manufacturing",
+    title: "Manufacturing",
     short: "EU-GMP / WHO-GMP Production",
     desc:
       "EU-GMP and WHO-GMP certified facilities. MDI inhalers manufactured by Medisol Lifescience Pvt. Ltd., Valsad, Gujarat.",
   },
   {
     color: "#7A1F7A",
-    title: "In-Process Checks",
+    title: "In-Process",
     short: "Continuous Quality Checks",
     desc:
       "Multiple checkpoints at every critical stage — dose accuracy, sterility, formulation consistency, packaging integrity.",
   },
   {
     color: "#62C7F5",
-    title: "Final Batch Release",
+    title: "Batch Release",
     short: "Final Sign-off & Documentation",
     desc:
       "Every batch receives final QA sign-off. Full documentation, COAs, and batch records available to partners on request.",
   },
   {
     color: "#E84D6C",
-    title: "GDP Logistics",
-    short: "Compliant Export & Delivery",
+    title: "Logistics",
+    short: "GDP Compliant Export & Delivery",
     desc:
       "GMP-compliant storage, cold-chain handling where required. Quality maintained all the way to your facility.",
   },
 ];
 
-// 6 points along an SVG path
-const NODE_POSITIONS = [
-  { x: 80, y: 165 },
-  { x: 250, y: 95 },
-  { x: 420, y: 165 },
-  { x: 590, y: 95 },
-  { x: 760, y: 165 },
-  { x: 930, y: 95 },
+// 6 nodes alternating top/bottom — all sit perfectly on the wave path
+const NODES = [
+  { x: 80, y: 170 },
+  { x: 240, y: 70 },
+  { x: 400, y: 170 },
+  { x: 560, y: 70 },
+  { x: 720, y: 170 },
+  { x: 880, y: 70 },
 ];
+
+// Continuous cubic-bezier wave passing through every node
+const WAVE_PATH =
+  "M 80,170 C 130,170 190,70 240,70 C 290,70 350,170 400,170 C 450,170 510,70 560,70 C 610,70 670,170 720,170 C 770,170 830,70 880,70";
 
 export default function QualityProcess() {
   const [active, setActive] = useState(0);
@@ -63,205 +67,186 @@ export default function QualityProcess() {
   return (
     <section
       data-testid="quality-process"
-      className="py-20 md:py-28 bg-white relative overflow-hidden"
+      className="py-14 md:py-20 bg-white relative overflow-hidden"
     >
-      <div className="absolute -top-32 left-1/3 w-[500px] h-[500px] rounded-full bg-[#0738A6]/[0.03] blur-3xl pointer-events-none" />
+      <div className="absolute top-0 left-1/3 w-[400px] h-[400px] rounded-full bg-[#0738A6]/[0.03] blur-3xl pointer-events-none" />
 
       <div className="container-x">
-        <div className="max-w-3xl mb-14 md:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10">
           <span className="eyebrow">Quality Process</span>
-          <h2 className="mt-4 font-display font-semibold text-[#12233D] text-2xl sm:text-3xl lg:text-[36px] tracking-tight leading-[1.15]">
+          <h2 className="mt-3 font-display font-semibold text-[#12233D] text-2xl sm:text-3xl lg:text-[34px] tracking-tight leading-[1.15]">
             From Raw Material to Your Shelf
           </h2>
-          <p className="mt-5 text-[#4B5563] text-[15.5px] leading-relaxed">
-            Our manufacturing process flows through six structured stages — tap
-            any step on the wave to see what happens behind the scenes.
+          <p className="mt-4 text-[#4B5563] text-[14.5px] leading-relaxed max-w-2xl mx-auto">
+            Tap any node on the wave to see what happens at that stage of our manufacturing process.
           </p>
         </div>
 
-        {/* SVG Wave with nodes */}
-        <div className="relative w-full overflow-x-auto no-scrollbar">
-          <svg
-            viewBox="0 0 1010 260"
-            className="w-full min-w-[820px] h-auto"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <defs>
-              <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#0738A6" />
-                <stop offset="20%" stopColor="#9DCD4A" />
-                <stop offset="40%" stopColor="#F2C14E" />
-                <stop offset="60%" stopColor="#7A1F7A" />
-                <stop offset="80%" stopColor="#62C7F5" />
-                <stop offset="100%" stopColor="#E84D6C" />
-              </linearGradient>
-              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="6" result="blur" />
-                <feMerge>
-                  <feMergeNode in="blur" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-            </defs>
+        <div className="bg-white border border-[#E9EEF5] rounded-3xl shadow-[0_18px_50px_rgba(7,56,166,0.06)] overflow-hidden">
+          {/* Wave */}
+          <div className="relative w-full overflow-x-auto no-scrollbar bg-gradient-to-b from-[#F7FAFD] to-white">
+            <svg
+              viewBox="0 0 960 240"
+              className="w-full min-w-[800px] h-auto block"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#0738A6" />
+                  <stop offset="20%" stopColor="#9DCD4A" />
+                  <stop offset="40%" stopColor="#F2C14E" />
+                  <stop offset="60%" stopColor="#7A1F7A" />
+                  <stop offset="80%" stopColor="#62C7F5" />
+                  <stop offset="100%" stopColor="#E84D6C" />
+                </linearGradient>
+                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="5" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
 
-            {/* Soft background wave */}
-            <path
-              d="M 0,180 C 120,180 130,80 250,80 C 370,80 380,180 500,180 C 620,180 630,80 750,80 C 870,80 880,180 1010,180"
-              fill="none"
-              stroke="#E9EEF5"
-              strokeWidth="22"
-              strokeLinecap="round"
-            />
+              {/* Soft background wave */}
+              <path
+                d={WAVE_PATH}
+                fill="none"
+                stroke="#E9EEF5"
+                strokeWidth="22"
+                strokeLinecap="round"
+              />
+              {/* Animated colored wave */}
+              <motion.path
+                d={WAVE_PATH}
+                fill="none"
+                stroke="url(#waveGrad)"
+                strokeWidth="3"
+                strokeLinecap="round"
+                initial={{ pathLength: 0 }}
+                whileInView={{ pathLength: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.8, ease: "easeInOut" }}
+              />
 
-            {/* Animated colored wave */}
-            <motion.path
-              d="M 0,180 C 120,180 130,80 250,80 C 370,80 380,180 500,180 C 620,180 630,80 750,80 C 870,80 880,180 1010,180"
-              fill="none"
-              stroke="url(#waveGrad)"
-              strokeWidth="3"
-              strokeLinecap="round"
-              initial={{ pathLength: 0 }}
-              whileInView={{ pathLength: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 2, ease: "easeInOut" }}
-            />
-
-            {/* Nodes */}
-            {steps.map((s, i) => {
-              const pos = NODE_POSITIONS[i];
-              const isActive = active === i;
-              return (
-                <g
-                  key={i}
-                  data-testid={`quality-node-${i}`}
-                  onMouseEnter={() => setActive(i)}
-                  onClick={() => setActive(i)}
-                  style={{ cursor: "pointer" }}
-                >
-                  {/* outer pulse */}
-                  {isActive && (
-                    <motion.circle
+              {steps.map((s, i) => {
+                const pos = NODES[i];
+                const isActive = active === i;
+                // label above for upper nodes (y=70), below for lower (y=170)
+                const labelY = pos.y < 130 ? 40 : 210;
+                return (
+                  <g
+                    key={i}
+                    data-testid={`quality-node-${i}`}
+                    onMouseEnter={() => setActive(i)}
+                    onClick={() => setActive(i)}
+                    style={{ cursor: "pointer" }}
+                  >
+                    {isActive && (
+                      <motion.circle
+                        cx={pos.x}
+                        cy={pos.y}
+                        r="30"
+                        fill={s.color}
+                        opacity="0.18"
+                        initial={{ scale: 0.7, opacity: 0.4 }}
+                        animate={{ scale: 1.1, opacity: 0.18 }}
+                        transition={{
+                          duration: 1.3,
+                          repeat: Infinity,
+                          repeatType: "reverse",
+                        }}
+                      />
+                    )}
+                    <circle
                       cx={pos.x}
                       cy={pos.y}
-                      r="32"
-                      fill={s.color}
-                      opacity="0.18"
-                      initial={{ scale: 0.7, opacity: 0.4 }}
-                      animate={{ scale: 1.1, opacity: 0.18 }}
-                      transition={{
-                        duration: 1.3,
-                        repeat: Infinity,
-                        repeatType: "reverse",
-                      }}
+                      r={isActive ? 22 : 18}
+                      fill="white"
+                      stroke={s.color}
+                      strokeWidth={isActive ? 4 : 3}
+                      filter={isActive ? "url(#glow)" : undefined}
+                      style={{ transition: "all .35s" }}
                     />
-                  )}
-                  {/* main circle */}
-                  <circle
-                    cx={pos.x}
-                    cy={pos.y}
-                    r={isActive ? 24 : 20}
-                    fill="white"
-                    stroke={s.color}
-                    strokeWidth={isActive ? 4 : 3}
-                    filter={isActive ? "url(#glow)" : undefined}
-                    style={{ transition: "all .35s" }}
-                  />
-                  <text
-                    x={pos.x}
-                    y={pos.y + 5}
-                    textAnchor="middle"
-                    fontFamily="Poppins, sans-serif"
-                    fontSize="14"
-                    fontWeight="700"
-                    fill={s.color}
-                  >
-                    {i + 1}
-                  </text>
+                    <text
+                      x={pos.x}
+                      y={pos.y + 5}
+                      textAnchor="middle"
+                      fontFamily="Poppins, sans-serif"
+                      fontSize="14"
+                      fontWeight="700"
+                      fill={s.color}
+                    >
+                      {i + 1}
+                    </text>
+                    <text
+                      x={pos.x}
+                      y={labelY}
+                      textAnchor="middle"
+                      fontFamily="Poppins, sans-serif"
+                      fontSize="13"
+                      fontWeight="600"
+                      fill={isActive ? s.color : "#12233D"}
+                      style={{ transition: "fill .3s" }}
+                    >
+                      {s.title}
+                    </text>
+                  </g>
+                );
+              })}
+            </svg>
+          </div>
 
-                  {/* label above/below */}
-                  <text
-                    x={pos.x}
-                    y={pos.y < 130 ? pos.y - 38 : pos.y + 48}
-                    textAnchor="middle"
-                    fontFamily="Poppins, sans-serif"
-                    fontSize="13"
-                    fontWeight="600"
-                    fill={isActive ? s.color : "#12233D"}
-                    style={{ transition: "fill .3s" }}
-                  >
-                    {s.title}
-                  </text>
-                </g>
-              );
-            })}
-          </svg>
-        </div>
-
-        {/* Detail panel */}
-        <div className="mt-10 md:mt-14">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={active}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="bg-white border border-[#E9EEF5] rounded-3xl p-8 md:p-10 shadow-[0_18px_50px_rgba(7,56,166,0.08)] relative overflow-hidden"
-              style={{ borderColor: `${a.color}30` }}
-            >
-              <div
-                className="absolute top-0 left-0 h-1 w-full"
-                style={{ background: a.color }}
-              />
-              <div
-                className="absolute -top-24 -right-24 w-[300px] h-[300px] rounded-full blur-3xl"
-                style={{ background: `${a.color}15` }}
-              />
-              <div className="relative grid lg:grid-cols-12 gap-6 items-center">
-                <div className="lg:col-span-3">
+          {/* Detail panel — fixed height so no scroll jump */}
+          <div
+            className="relative px-6 md:px-10 py-7 md:py-8 border-t border-[#E9EEF5] min-h-[180px] md:min-h-[170px]"
+            style={{
+              background:
+                `linear-gradient(90deg, ${a.color}08 0%, transparent 60%)`,
+            }}
+          >
+            <div
+              className="absolute top-0 left-0 h-1 w-full transition-colors duration-500"
+              style={{ background: a.color }}
+            />
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={active}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                className="grid lg:grid-cols-12 gap-5 items-center"
+              >
+                <div className="lg:col-span-3 flex items-center gap-4">
                   <div
-                    className="w-20 h-20 rounded-2xl flex items-center justify-center font-display font-bold text-3xl text-white shadow-lg"
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center font-display font-bold text-2xl text-white shadow-lg shrink-0"
                     style={{ background: a.color }}
                   >
                     {active + 1}
                   </div>
-                  <div
-                    className="mt-4 text-[10px] font-bold uppercase tracking-[0.2em]"
-                    style={{ color: a.color }}
-                  >
-                    Stage {active + 1} of 6
+                  <div>
+                    <div
+                      className="text-[9px] font-bold uppercase tracking-[0.22em]"
+                      style={{ color: a.color }}
+                    >
+                      Stage {active + 1} / 6
+                    </div>
+                    <div className="font-display font-semibold text-[#12233D] text-[15px] leading-tight mt-0.5">
+                      {a.title}
+                    </div>
                   </div>
                 </div>
                 <div className="lg:col-span-9">
-                  <h3 className="font-display font-semibold text-[#12233D] text-xl md:text-2xl tracking-tight">
+                  <h3 className="font-display font-semibold text-[#12233D] text-base md:text-lg tracking-tight">
                     {a.short}
                   </h3>
-                  <p className="mt-3 text-[#4B5563] text-[15.5px] leading-relaxed">
+                  <p className="mt-1.5 text-[#4B5563] text-[13.5px] md:text-[14.5px] leading-relaxed">
                     {a.desc}
                   </p>
                 </div>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Mobile-friendly step pills */}
-          <div className="mt-6 flex flex-wrap gap-2 lg:hidden">
-            {steps.map((s, i) => (
-              <button
-                key={i}
-                onClick={() => setActive(i)}
-                className={`px-3 py-1.5 rounded-full text-[12px] font-semibold transition-all ${
-                  active === i
-                    ? "text-white shadow-md"
-                    : "bg-[#F7FAFD] text-[#12233D] border border-[#E9EEF5]"
-                }`}
-                style={
-                  active === i ? { background: s.color } : undefined
-                }
-              >
-                {i + 1}. {s.title}
-              </button>
-            ))}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </div>
       </div>

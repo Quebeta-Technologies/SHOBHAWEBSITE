@@ -29,21 +29,20 @@ const countries = [
   { flag: "🇲🇲", name: "Myanmar", region: "Southeast Asia" },
 ];
 
-function CountryCard({ c }) {
+function CountryChip({ c }) {
   return (
-    <div className="mx-3 group">
-      <div className="relative w-[200px] h-[200px] rounded-2xl bg-white border border-[#E9EEF5] flex flex-col items-center justify-center p-5 transition-all duration-500 hover:border-[#0738A6]/40 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(7,56,166,0.15)] cursor-default overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0738A6]/[0.02] via-transparent to-[#9DCD4A]/[0.05] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        <div className="text-[72px] leading-none mb-3 transition-transform duration-500 group-hover:scale-110 select-none">
+    <div className="mx-2 group">
+      <div className="relative w-[170px] h-[170px] rounded-2xl bg-white/85 backdrop-blur-md border border-[#E9EEF5] flex flex-col items-center justify-center p-4 transition-all duration-500 hover:bg-white hover:border-[#0738A6]/40 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(7,56,166,0.15)] overflow-hidden">
+        <div className="text-[60px] leading-none mb-2 transition-transform duration-500 group-hover:scale-110 select-none">
           {c.flag}
         </div>
-        <div className="font-display font-semibold text-[#12233D] text-[16px] tracking-tight text-center">
+        <div className="font-display font-semibold text-[#12233D] text-[14px] tracking-tight text-center">
           {c.name}
         </div>
-        <div className="mt-1 text-[11px] text-[#4B5563] uppercase tracking-widest font-semibold">
+        <div className="mt-0.5 text-[9px] text-[#4B5563] uppercase tracking-widest font-semibold">
           {c.region}
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0738A6] via-[#9DCD4A] to-[#F2C14E] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+        <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#0738A6] via-[#9DCD4A] to-[#F2C14E] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
       </div>
     </div>
   );
@@ -54,74 +53,83 @@ export default function GlobalCountries() {
     <section
       id="global"
       data-testid="global-countries"
-      className="py-20 md:py-28 bg-[#F7FAFD] relative overflow-hidden"
+      className="py-14 md:py-20 bg-[#F7FAFD] relative overflow-hidden"
     >
       <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-[#62C7F5]/10 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-[#9DCD4A]/10 blur-3xl pointer-events-none" />
 
       <div className="container-x relative">
-        <div className="max-w-3xl mb-12">
-          <span className="eyebrow">Global Presence</span>
-          <h2 className="mt-4 font-display font-semibold text-[#12233D] text-2xl sm:text-3xl lg:text-[36px] tracking-tight leading-[1.15]">
-            Present in 20+ Countries Across 4 Continents
-          </h2>
-          <p className="mt-5 text-[#4B5563] text-[15.5px] leading-relaxed">
-            From pharmacies in Accra to clinics in Phnom Penh — our medicines
-            reach the people who need them every single day.
-          </p>
-        </div>
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          {/* LHS — heading + text */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7 }}
+            className="lg:col-span-5"
+          >
+            <span className="eyebrow">Global Presence</span>
+            <h2 className="mt-3 font-display font-semibold text-[#12233D] text-2xl sm:text-3xl lg:text-[36px] tracking-tight leading-[1.15]">
+              Present in 20+ Countries Across 4 Continents
+            </h2>
+            <p className="mt-5 text-[#4B5563] text-[15.5px] leading-relaxed">
+              From pharmacies in Accra to clinics in Phnom Penh — our medicines
+              reach the people who need them every single day. Built on real
+              market presence, not export claims.
+            </p>
+            <div className="mt-6 flex items-center gap-3 text-[12px] font-bold tracking-[0.22em] uppercase text-[#0738A6]">
+              <span className="inline-block w-8 h-px bg-[#0738A6]" />
+              17 Active Markets · Always Growing
+            </div>
+          </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-14">
-          {regions.map((r, i) => (
-            <motion.div
-              key={r.name}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: i * 0.08 }}
-              className="card-hover bg-white border border-[#E9EEF5] rounded-2xl p-6 flex items-center gap-4"
-            >
-              <div
-                className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl"
-                style={{ background: r.bg }}
+          {/* RHS — 4 region cards in 2x2 grid */}
+          <div className="lg:col-span-7 grid sm:grid-cols-2 gap-4">
+            {regions.map((r, i) => (
+              <motion.div
+                key={r.name}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: i * 0.08 }}
+                className="card-hover bg-white border border-[#E9EEF5] rounded-2xl p-5 flex items-center gap-4"
               >
-                {r.icon}
-              </div>
-              <div>
-                <div className="font-display font-semibold text-[#12233D] text-lg leading-tight">
-                  {r.name}
+                <div
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shrink-0"
+                  style={{ background: r.bg }}
+                >
+                  {r.icon}
                 </div>
-                <div className="text-[#4B5563] text-sm">{r.note}</div>
-              </div>
-            </motion.div>
-          ))}
+                <div>
+                  <div className="font-display font-semibold text-[#12233D] text-lg leading-tight">
+                    {r.name}
+                  </div>
+                  <div className="text-[#4B5563] text-sm">{r.note}</div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/* Country flag carousel */}
-      <div className="relative">
+      {/* Country flag carousel — running behind */}
+      <div className="relative mt-12 md:mt-14">
         <div className="absolute left-0 top-0 bottom-0 w-24 md:w-44 z-10 bg-gradient-to-r from-[#F7FAFD] to-transparent pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-24 md:w-44 z-10 bg-gradient-to-l from-[#F7FAFD] to-transparent pointer-events-none" />
 
-        <Marquee gradient={false} speed={40} pauseOnHover>
+        <Marquee gradient={false} speed={35} pauseOnHover>
           {countries.map((c, i) => (
-            <CountryCard key={`row1-${i}`} c={c} />
+            <CountryChip key={`row1-${i}`} c={c} />
           ))}
         </Marquee>
 
-        <div className="h-4" />
+        <div className="h-3" />
 
-        <Marquee gradient={false} speed={30} direction="right" pauseOnHover>
+        <Marquee gradient={false} speed={28} direction="right" pauseOnHover>
           {[...countries].reverse().map((c, i) => (
-            <CountryCard key={`row2-${i}`} c={c} />
+            <CountryChip key={`row2-${i}`} c={c} />
           ))}
         </Marquee>
-      </div>
-
-      <div className="container-x text-center mt-12">
-        <div className="text-[12px] font-bold tracking-[0.22em] uppercase text-[#0738A6]">
-          17+ Active Markets · Always Growing
-        </div>
       </div>
     </section>
   );

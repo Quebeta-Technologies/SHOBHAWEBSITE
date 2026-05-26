@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Check, Award, Sparkles, Globe2, Pill } from "lucide-react";
+import { Check, Award, Globe2 } from "lucide-react";
 
 const points = [
   "End-to-end capability — from manufacturing to global distribution",
@@ -14,7 +14,7 @@ export default function AboutSection() {
     <section
       id="about"
       data-testid="about-section"
-      className="pt-6 md:pt-10 pb-20 md:pb-24 bg-white"
+      className="pt-4 md:pt-8 pb-12 md:pb-16 bg-white"
     >
       <div className="container-x grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         <div className="lg:col-span-6 relative">
@@ -63,46 +63,6 @@ export default function AboutSection() {
               </div>
               <div className="text-[#12233D] font-display font-semibold text-[13px]">
                 20+ Countries
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: -14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.55, delay: 0.3 }}
-            className="absolute -bottom-4 left-6 md:left-12 bg-white border border-[#E9EEF5] rounded-2xl px-4 py-3 shadow-xl flex items-center gap-2.5"
-          >
-            <div className="w-9 h-9 rounded-xl bg-[#62C7F5]/25 flex items-center justify-center">
-              <Pill className="w-4 h-4 text-[#0738A6]" />
-            </div>
-            <div>
-              <div className="text-[9px] uppercase tracking-widest text-[#4B5563] font-bold">
-                Portfolio
-              </div>
-              <div className="text-[#12233D] font-display font-semibold text-[13px]">
-                50+ Products
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.55, delay: 0.4 }}
-            className="absolute -bottom-5 -right-3 md:-right-6 bg-white border border-[#E9EEF5] rounded-2xl px-4 py-3 shadow-xl flex items-center gap-2.5 animate-float-slow"
-          >
-            <div className="w-9 h-9 rounded-xl bg-[#E84D6C]/15 flex items-center justify-center">
-              <Sparkles className="w-4 h-4 text-[#E84D6C]" />
-            </div>
-            <div>
-              <div className="text-[9px] uppercase tracking-widest text-[#4B5563] font-bold">
-                Trust
-              </div>
-              <div className="text-[#12233D] font-display font-semibold text-[13px]">
-                EU-GMP Certified
               </div>
             </div>
           </motion.div>

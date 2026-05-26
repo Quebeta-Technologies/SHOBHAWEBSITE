@@ -1,34 +1,44 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { Quote, Star, MapPin } from "lucide-react";
 
 const items = [
   {
     quote:
       "Shobha has been a reliable partner for us in Ghana. Their MDI inhalers are consistently good quality and we can actually afford to stock them in volume. That matters a lot in our market.",
-    role: "Distribution Partner",
+    name: "Distribution Partner",
+    role: "Pharmaceutical Wholesale",
     location: "Accra, Ghana",
+    accent: "#9DCD4A",
   },
   {
     quote:
       "What we appreciate most is that they follow through. Products arrive on time, quality is consistent, and their team is easy to work with. That's rare to find in pharmaceutical supply.",
-    role: "Hospital Procurement Manager",
+    name: "Hospital Procurement",
+    role: "Institutional Buyer",
     location: "Nairobi, Kenya",
+    accent: "#7A1F7A",
   },
 ];
 
 export default function Testimonials() {
   return (
-    <section data-testid="testimonials" className="py-20 md:py-28 bg-white">
-      <div className="container-x">
-        <div className="max-w-3xl mb-14">
+    <section
+      data-testid="testimonials"
+      className="py-14 md:py-20 bg-white relative overflow-hidden"
+    >
+      <div className="absolute top-1/3 -left-32 w-[400px] h-[400px] rounded-full bg-[#0738A6]/[0.04] blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 -right-32 w-[400px] h-[400px] rounded-full bg-[#9DCD4A]/[0.06] blur-3xl pointer-events-none" />
+
+      <div className="container-x relative">
+        <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="eyebrow">What People Say</span>
-          <h2 className="mt-4 font-display font-semibold text-[#12233D] text-2xl sm:text-3xl lg:text-[36px] tracking-tight leading-[1.15]">
+          <h2 className="mt-3 font-display font-semibold text-[#12233D] text-2xl sm:text-3xl lg:text-[34px] tracking-tight leading-[1.15]">
             Trusted Across Our Markets
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-2 gap-6">
           {items.map((t, i) => (
             <motion.div
               key={i}
@@ -37,25 +47,68 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, delay: i * 0.1 }}
-              className="card-hover relative bg-[#F7FAFD] border border-[#E9EEF5] rounded-2xl p-8 md:p-10"
+              className="group relative"
             >
-              <div className="flex items-center gap-1 text-[#F2C14E] mb-6">
-                {[...Array(5)].map((_, j) => (
-                  <Star key={j} className="w-4 h-4 fill-current" />
-                ))}
-              </div>
-              <p className="text-[#12233D] text-[16px] md:text-[17px] leading-relaxed font-display font-medium">
-                "{t.quote}"
-              </p>
-              <div className="mt-6 pt-5 border-t border-[#E9EEF5] flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#0738A6] text-white flex items-center justify-center font-display font-bold text-sm">
-                  ★
+              <div className="relative bg-white rounded-3xl p-8 md:p-10 border border-[#E9EEF5] overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(7,56,166,0.12)]">
+                {/* Colored accent rail */}
+                <div
+                  className="absolute top-0 left-0 h-1 w-full transition-all duration-500 group-hover:h-1.5"
+                  style={{ background: t.accent }}
+                />
+                {/* Giant ghost quote */}
+                <div
+                  className="absolute -top-2 right-6 font-display text-[140px] leading-none opacity-[0.05] select-none"
+                  style={{ color: t.accent }}
+                >
+                  "
                 </div>
-                <div>
-                  <div className="text-[#12233D] font-semibold text-sm">
-                    {t.role}
+
+                <div className="relative">
+                  <div
+                    className="inline-flex items-center justify-center w-12 h-12 rounded-2xl mb-6"
+                    style={{ background: `${t.accent}1A` }}
+                  >
+                    <Quote className="w-5 h-5" style={{ color: t.accent }} />
                   </div>
-                  <div className="text-[#4B5563] text-xs">{t.location}</div>
+
+                  <p className="text-[#12233D] text-[16px] md:text-[17px] leading-relaxed font-display font-medium">
+                    {t.quote}
+                  </p>
+
+                  <div className="flex items-center gap-1 mt-6 mb-5">
+                    {[...Array(5)].map((_, j) => (
+                      <Star
+                        key={j}
+                        className="w-4 h-4 fill-current"
+                        style={{ color: "#F2C14E" }}
+                      />
+                    ))}
+                  </div>
+
+                  <div className="flex items-center gap-4 pt-5 border-t border-[#E9EEF5]">
+                    <div
+                      className="w-12 h-12 rounded-full flex items-center justify-center text-white font-display font-bold text-base shrink-0"
+                      style={{ background: t.accent }}
+                    >
+                      {t.name
+                        .split(" ")
+                        .slice(0, 2)
+                        .map((w) => w[0])
+                        .join("")}
+                    </div>
+                    <div className="min-w-0">
+                      <div className="font-display font-semibold text-[#12233D] text-[15px] leading-tight">
+                        {t.name}
+                      </div>
+                      <div className="text-[#4B5563] text-[12.5px] mt-0.5">
+                        {t.role}
+                      </div>
+                      <div className="inline-flex items-center gap-1 mt-1 text-[11px] font-semibold uppercase tracking-widest" style={{ color: t.accent }}>
+                        <MapPin className="w-3 h-3" />
+                        {t.location}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </motion.div>

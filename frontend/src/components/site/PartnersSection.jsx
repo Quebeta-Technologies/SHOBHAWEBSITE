@@ -17,10 +17,10 @@ function PartnerPlaque({ p }) {
     .map((w) => w[0])
     .join("");
   return (
-    <div className="mx-3 md:mx-4 group">
+    <div className="mx-4 md:mx-6 group">
       <div
-        className="relative flex items-center gap-4 px-7 py-5 rounded-2xl bg-white border border-[#E9EEF5] hover:border-transparent transition-all duration-500 shadow-[0_8px_24px_rgba(7,56,166,0.04)] hover:shadow-[0_18px_50px_rgba(7,56,166,0.14)]"
-        style={{ minWidth: 260 }}
+        className="relative flex items-center gap-4 px-7 py-4 rounded-2xl bg-white border border-[#E9EEF5] hover:border-transparent transition-all duration-500 shadow-[0_8px_24px_rgba(7,56,166,0.04)] hover:shadow-[0_18px_50px_rgba(7,56,166,0.14)]"
+        style={{ minWidth: 280 }}
       >
         <div
           className="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center font-display font-bold text-white text-base transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
@@ -48,15 +48,15 @@ export default function PartnersSection() {
     <section
       id="partners"
       data-testid="partners-section"
-      className="py-20 md:py-24 bg-[#F7FAFD] relative overflow-hidden"
+      className="py-14 md:py-20 bg-[#F7FAFD] relative overflow-hidden"
     >
       <div className="absolute -top-24 -right-24 w-[420px] h-[420px] rounded-full bg-[#0738A6]/[0.04] blur-3xl pointer-events-none" />
       <div className="absolute -bottom-24 -left-24 w-[420px] h-[420px] rounded-full bg-[#9DCD4A]/[0.06] blur-3xl pointer-events-none" />
 
       <div className="container-x relative">
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <div className="text-center max-w-2xl mx-auto mb-10">
           <span className="eyebrow">Our Partners</span>
-          <h2 className="mt-4 font-display font-semibold text-[#12233D] text-2xl sm:text-3xl lg:text-[36px] tracking-tight leading-[1.15]">
+          <h2 className="mt-3 font-display font-semibold text-[#12233D] text-2xl sm:text-3xl lg:text-[34px] tracking-tight leading-[1.15]">
             Partners Who Share Our Vision
           </h2>
         </div>
@@ -66,28 +66,9 @@ export default function PartnersSection() {
         <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 z-10 bg-gradient-to-r from-[#F7FAFD] to-transparent pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 z-10 bg-gradient-to-l from-[#F7FAFD] to-transparent pointer-events-none" />
 
-        <Marquee
-          gradient={false}
-          speed={45}
-          pauseOnHover
-          className="py-3"
-        >
+        <Marquee gradient={false} speed={45} pauseOnHover className="py-3">
           {partners.map((p, i) => (
-            <PartnerPlaque key={`a-${i}`} p={p} />
-          ))}
-        </Marquee>
-
-        <div className="h-3" />
-
-        <Marquee
-          gradient={false}
-          speed={35}
-          direction="right"
-          pauseOnHover
-          className="py-3"
-        >
-          {[...partners].reverse().map((p, i) => (
-            <PartnerPlaque key={`b-${i}`} p={p} />
+            <PartnerPlaque key={i} p={p} />
           ))}
         </Marquee>
       </div>

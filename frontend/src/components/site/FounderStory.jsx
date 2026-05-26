@@ -7,7 +7,7 @@ export default function FounderStory() {
     <section
       id="founder"
       data-testid="founder-story"
-      className="py-20 md:py-28 text-white relative overflow-hidden"
+      className="py-12 md:py-16 text-white relative overflow-hidden"
       style={{
         background:
           "linear-gradient(135deg, #7A1F7A 0%, #12233D 55%, #0738A6 100%)",

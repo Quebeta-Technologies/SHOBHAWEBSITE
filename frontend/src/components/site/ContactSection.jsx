@@ -55,7 +55,7 @@ export default function ContactSection() {
         <div className="absolute inset-0 dot-grid opacity-25 pointer-events-none" />
         <div className="absolute -top-32 -right-32 w-[420px] h-[420px] rounded-full bg-[#62C7F5]/25 blur-3xl" />
         <div className="absolute -bottom-32 -left-32 w-[420px] h-[420px] rounded-full bg-[#F2C14E]/20 blur-3xl" />
-        <div className="container-x relative py-20 md:py-28 grid lg:grid-cols-12 gap-10 items-center">
+        <div className="container-x relative py-12 md:py-16 grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-8">
             <h2 className="font-display font-semibold text-white text-3xl md:text-4xl lg:text-[44px] leading-[1.1] tracking-tight">
               Looking for a Trusted Pharmaceutical Partner From the UAE?
@@ -90,7 +90,7 @@ export default function ContactSection() {
       <section
         id="contact"
         data-testid="contact-section"
-        className="py-24 md:py-32 bg-[#F7FAFD]"
+        className="py-12 md:py-16 bg-[#F7FAFD]"
       >
         <div className="container-x grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">

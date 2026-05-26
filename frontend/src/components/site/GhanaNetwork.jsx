@@ -13,7 +13,7 @@ export default function GhanaNetwork() {
     <section
       id="ghana"
       data-testid="ghana-network"
-      className="py-20 md:py-28 bg-white relative overflow-hidden"
+      className="py-12 md:py-16 bg-white relative overflow-hidden"
     >
       <div className="container-x">
         <div className="rounded-3xl bg-gradient-to-br from-[#7A1F7A] via-[#0738A6] to-[#12233D] text-white p-8 md:p-14 relative overflow-hidden">

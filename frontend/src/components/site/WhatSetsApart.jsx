@@ -72,7 +72,7 @@ export default function WhatSetsApart() {
     <section
       id="why"
       data-testid="why-shobha"
-      className="py-20 md:py-28 bg-[#F7FAFD] relative overflow-hidden"
+      className="py-12 md:py-16 bg-[#F7FAFD] relative overflow-hidden"
     >
       <div className="absolute -top-32 right-0 w-[600px] h-[600px] rounded-full bg-[#0738A6]/[0.04] blur-3xl pointer-events-none" />
       <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-[#9DCD4A]/[0.06] blur-3xl pointer-events-none" />
