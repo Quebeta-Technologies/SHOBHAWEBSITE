@@ -167,6 +167,7 @@ export default function ContactSection() {
                 >
                   <Field
                     label="Full Name"
+                    name="name"
                     required
                     value={form.name}
                     onChange={update("name")}
@@ -174,18 +175,21 @@ export default function ContactSection() {
                   />
                   <Field
                     label="Company"
+                    name="company"
                     value={form.company}
                     onChange={update("company")}
                     testid="input-company"
                   />
                   <Field
                     label="Country"
+                    name="country"
                     value={form.country}
                     onChange={update("country")}
                     testid="input-country"
                   />
                   <Field
                     label="Email"
+                    name="email"
                     type="email"
                     required
                     value={form.email}
@@ -194,6 +198,7 @@ export default function ContactSection() {
                   />
                   <Field
                     label="Phone"
+                    name="phone"
                     value={form.phone}
                     onChange={update("phone")}
                     testid="input-phone"
@@ -203,6 +208,7 @@ export default function ContactSection() {
                       Inquiry Type
                     </label>
                     <select
+                      name="inquiry_type"
                       data-testid="input-inquiry-type"
                       value={form.inquiry_type}
                       onChange={update("inquiry_type")}
@@ -218,6 +224,7 @@ export default function ContactSection() {
                       Message <span className="text-[#E84D6C]">*</span>
                     </label>
                     <textarea
+                      name="message"
                       data-testid="input-message"
                       required
                       minLength={10}
@@ -283,13 +290,19 @@ function ContactRow({ label, value, href }) {
   );
 }
 
-function Field({ label, type = "text", required, value, onChange, testid }) {
+function Field({ label, name, type = "text", required, value, onChange, testid }) {
+  const id = `field-${name || testid || label.toLowerCase().replace(/\s+/g, "-")}`;
   return (
     <div>
-      <label className="block text-[12px] font-semibold tracking-wide uppercase text-[#12233D]/70 mb-2">
+      <label
+        htmlFor={id}
+        className="block text-[12px] font-semibold tracking-wide uppercase text-[#12233D]/70 mb-2"
+      >
         {label} {required && <span className="text-[#E84D6C]">*</span>}
       </label>
       <input
+        id={id}
+        name={name}
         data-testid={testid}
         type={type}
         required={required}

@@ -37,8 +37,22 @@ export default function AdminLayout() {
     >
       <aside className="hidden md:flex w-64 flex-col bg-[#12233D] text-white sticky top-0 h-screen">
         <div className="p-6 border-b border-white/10">
-          <Logo className="h-9 w-auto" showText={false} />
-          <div className="mt-3 text-[11px] tracking-[0.22em] uppercase text-[#62C7F5] font-semibold">
+          <div className="flex items-center gap-3">
+            <img
+              src="/brand/shobha-logo.svg"
+              alt="Shobha Healthcare"
+              className="h-11 w-11"
+            />
+            <div className="leading-tight">
+              <div className="font-display font-semibold text-white text-base">
+                Shobha
+              </div>
+              <div className="text-[10px] tracking-[0.22em] uppercase text-[#62C7F5] font-semibold">
+                Healthcare
+              </div>
+            </div>
+          </div>
+          <div className="mt-4 text-[11px] tracking-[0.22em] uppercase text-[#62C7F5]/80 font-semibold">
             Admin Console
           </div>
         </div>
