@@ -1,84 +1,95 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { Globe2, Pill, Hospital, Factory } from "lucide-react";
+import Marquee from "react-fast-marquee";
 
 const partners = [
-  {
-    icon: Globe2,
-    color: "#62C7F5",
-    bg: "rgba(98,199,245,0.20)",
-    name: "Shobha Global",
-    desc: "International operations partner supporting global expansion and market access strategy",
-  },
-  {
-    icon: Pill,
-    color: "#E84D6C",
-    bg: "rgba(232,77,108,0.13)",
-    name: "Trident Pharmaceuticals",
-    desc: "Distribution collaborator strengthening supply chain capabilities and product portfolio",
-  },
-  {
-    icon: Hospital,
-    color: "#9DCD4A",
-    bg: "rgba(157,205,74,0.18)",
-    name: "TIL Healthcare",
-    desc: "Healthcare collaborator with strong institutional pharmaceutical supply network",
-  },
-  {
-    icon: Factory,
-    color: "#F2C14E",
-    bg: "rgba(242,193,78,0.22)",
-    name: "Medisol Lifescience",
-    desc: "EU-GMP & WHO-GMP certified manufacturing partner — Valsad, Gujarat, India",
-  },
+  { name: "Shobha Global", color: "#0738A6" },
+  { name: "Trident Pharmaceuticals", color: "#E84D6C" },
+  { name: "TIL Healthcare", color: "#9DCD4A" },
+  { name: "Medisol Lifescience", color: "#F2C14E" },
+  { name: "Greenwich Therapeutics", color: "#7A1F7A" },
+  { name: "United Pharma Ghana", color: "#62C7F5" },
 ];
+
+function PartnerPlaque({ p }) {
+  const initials = p.name
+    .split(" ")
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join("");
+  return (
+    <div className="mx-3 md:mx-4 group">
+      <div
+        className="relative flex items-center gap-4 px-7 py-5 rounded-2xl bg-white border border-[#E9EEF5] hover:border-transparent transition-all duration-500 shadow-[0_8px_24px_rgba(7,56,166,0.04)] hover:shadow-[0_18px_50px_rgba(7,56,166,0.14)]"
+        style={{ minWidth: 260 }}
+      >
+        <div
+          className="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center font-display font-bold text-white text-base transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
+          style={{ background: p.color }}
+        >
+          {initials}
+        </div>
+        <span className="font-display font-semibold text-[#12233D] text-[17px] whitespace-nowrap tracking-tight">
+          {p.name}
+        </span>
+        <div
+          className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+          style={{
+            background: `linear-gradient(135deg, ${p.color}08 0%, transparent 100%)`,
+            border: `1px solid ${p.color}40`,
+          }}
+        />
+      </div>
+    </div>
+  );
+}
 
 export default function PartnersSection() {
   return (
     <section
       id="partners"
       data-testid="partners-section"
-      className="py-20 md:py-28 bg-[#F7FAFD]"
+      className="py-20 md:py-24 bg-[#F7FAFD] relative overflow-hidden"
     >
-      <div className="container-x">
-        <div className="max-w-3xl mb-14">
+      <div className="absolute -top-24 -right-24 w-[420px] h-[420px] rounded-full bg-[#0738A6]/[0.04] blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-24 -left-24 w-[420px] h-[420px] rounded-full bg-[#9DCD4A]/[0.06] blur-3xl pointer-events-none" />
+
+      <div className="container-x relative">
+        <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="eyebrow">Our Partners</span>
           <h2 className="mt-4 font-display font-semibold text-[#12233D] text-2xl sm:text-3xl lg:text-[36px] tracking-tight leading-[1.15]">
             Partners Who Share Our Vision
           </h2>
-          <p className="mt-5 text-[#4B5563] text-[15.5px] leading-relaxed">
-            We grow with our partners — these are the organisations that help
-            us turn good products into real healthcare outcomes across the
-            world.
-          </p>
         </div>
+      </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div className="relative">
+        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 z-10 bg-gradient-to-r from-[#F7FAFD] to-transparent pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 z-10 bg-gradient-to-l from-[#F7FAFD] to-transparent pointer-events-none" />
+
+        <Marquee
+          gradient={false}
+          speed={45}
+          pauseOnHover
+          className="py-3"
+        >
           {partners.map((p, i) => (
-            <motion.div
-              key={p.name}
-              data-testid={`partner-${i}`}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: i * 0.07 }}
-              className="card-hover bg-white border border-[#E9EEF5] rounded-2xl p-6"
-            >
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
-                style={{ background: p.bg }}
-              >
-                <p.icon className="w-6 h-6" style={{ color: p.color }} />
-              </div>
-              <h3 className="font-display font-semibold text-[#12233D] text-[16px] mb-2 leading-snug">
-                {p.name}
-              </h3>
-              <p className="text-[#4B5563] text-[13px] leading-relaxed">
-                {p.desc}
-              </p>
-            </motion.div>
+            <PartnerPlaque key={`a-${i}`} p={p} />
           ))}
-        </div>
+        </Marquee>
+
+        <div className="h-3" />
+
+        <Marquee
+          gradient={false}
+          speed={35}
+          direction="right"
+          pauseOnHover
+          className="py-3"
+        >
+          {[...partners].reverse().map((p, i) => (
+            <PartnerPlaque key={`b-${i}`} p={p} />
+          ))}
+        </Marquee>
       </div>
     </section>
   );

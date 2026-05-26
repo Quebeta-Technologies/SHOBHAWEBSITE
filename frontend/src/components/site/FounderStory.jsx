@@ -20,9 +20,9 @@ export default function FounderStory() {
         <div className="lg:col-span-5 relative">
           <div className="relative rounded-3xl overflow-hidden aspect-[4/5] border border-white/10">
             <img
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=900"
-              alt="Mr. Jagdish Maheshwari"
-              className="w-full h-full object-cover grayscale-[20%]"
+              src="/brand/jagdish.jpeg"
+              alt="Mr. Jagdish Maheshwari — Founder & CEO"
+              className="w-full h-full object-cover object-top"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#12233D]/70 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 right-6">

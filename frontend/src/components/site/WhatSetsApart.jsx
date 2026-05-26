@@ -94,11 +94,11 @@ export default function WhatSetsApart() {
           <div className="lg:col-span-5 relative">
             <div className="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-[0_30px_70px_rgba(7,56,166,0.18)]">
               <img
-                src="https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&q=80&w=1100"
-                alt="Pharmaceutical manufacturing lab"
+                src="/brand/whyshobha.png"
+                alt="Why Shobha — manufacturing & global reach"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#12233D]/60 via-transparent to-[#0738A6]/15" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#12233D]/40 via-transparent to-transparent" />
 
               {/* Floating chip — top right */}
               <motion.div

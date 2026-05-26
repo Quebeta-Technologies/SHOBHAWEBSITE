@@ -172,7 +172,7 @@ DEFAULT_HOMEPAGE = {
             "subheadline": "From Dubai to Africa and Southeast Asia — quality medicines and wellness products that people can actually afford. EU-GMP certified. WHO compliant. Priced for the real world.",
             "cta_label": "Explore Our Products",
             "cta_link": "#products",
-            "image_url": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=2000",
+            "image_url": "/brand/hero-main.png",
         },
         {
             "id": "pharma",
@@ -181,7 +181,7 @@ DEFAULT_HOMEPAGE = {
             "subheadline": "Cancer medicines, respiratory inhalers, critical care drugs, and biological therapies — manufactured to EU-GMP and WHO-GMP standards at certified partner facilities.",
             "cta_label": "View Pharmaceutical Range",
             "cta_link": "#products",
-            "image_url": "https://images.unsplash.com/photo-1631549916768-4119b2e5f926?auto=format&fit=crop&q=80&w=2000",
+            "image_url": "/brand/hero-pharma.png",
         },
         {
             "id": "nutra",
@@ -190,7 +190,7 @@ DEFAULT_HOMEPAGE = {
             "subheadline": "Our Essential range supports women's health, men's health, and general wellness — made to GMP manufacturing standards with pure, validated ingredients.",
             "cta_label": "Explore Nutraceuticals",
             "cta_link": "#nutraceuticals",
-            "image_url": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&q=80&w=2000",
+            "image_url": "/brand/hero-nutra.png",
         },
     ],
     "trust_strip": [

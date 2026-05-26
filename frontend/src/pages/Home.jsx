@@ -9,7 +9,6 @@ import WhatSetsApart from "../components/site/WhatSetsApart";
 import QualityProcess from "../components/site/QualityProcess";
 import NutraceuticalsSection from "../components/site/NutraceuticalsSection";
 import FounderStory from "../components/site/FounderStory";
-import Team from "../components/site/Team";
 import PartnersSection from "../components/site/PartnersSection";
 import GhanaNetwork from "../components/site/GhanaNetwork";
 import GlobalCountries from "../components/site/GlobalCountries";
@@ -40,7 +39,6 @@ export default function Home() {
       <QualityProcess />
       <NutraceuticalsSection />
       <FounderStory />
-      <Team />
       <PartnersSection />
       <GhanaNetwork />
       <GlobalCountries />
