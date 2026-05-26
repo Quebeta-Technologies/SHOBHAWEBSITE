@@ -77,13 +77,25 @@ export default function NutraceuticalsSection() {
     <section
       id="nutraceuticals"
       data-testid="nutraceuticals"
-      className="py-20 md:py-28 bg-gradient-to-b from-[#F7FAFD] to-white"
+      className="py-20 md:py-28 relative overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(180deg, #F7FAFD 0%, rgba(157,205,74,0.08) 60%, #ffffff 100%)",
+      }}
     >
-      <div className="container-x">
+      <div className="absolute -top-32 right-1/4 w-[500px] h-[500px] rounded-full bg-[#9DCD4A]/15 blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 -left-32 w-[400px] h-[400px] rounded-full bg-[#62C7F5]/15 blur-3xl pointer-events-none" />
+      <div className="container-x relative">
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <span className="eyebrow">Nutraceuticals</span>
+          <span
+            className="text-[11px] font-bold tracking-[0.22em] uppercase"
+            style={{ color: "#5e8722" }}
+          >
+            Nutraceuticals · Wellness
+          </span>
           <h2 className="mt-4 font-display font-semibold text-[#12233D] text-2xl sm:text-3xl lg:text-[36px] tracking-tight leading-[1.15]">
-            Supplements You Can Actually Trust
+            Supplements You Can{" "}
+            <span className="text-[#5e8722]">Actually Trust</span>
           </h2>
           <p className="mt-5 text-[#4B5563] text-[15.5px] leading-relaxed">
             Every Essential product is made to GMP manufacturing standards
@@ -92,26 +104,38 @@ export default function NutraceuticalsSection() {
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
-          {standards.map((s, i) => (
-            <motion.div
-              key={s.title}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.45, delay: i * 0.06 }}
-              className="bg-white border border-[#E9EEF5] rounded-2xl p-6"
-            >
-              <div className="w-11 h-11 rounded-xl bg-[#9DCD4A]/15 flex items-center justify-center mb-4">
-                <s.icon className="w-5 h-5 text-[#5e8722]" />
-              </div>
-              <h4 className="font-display font-semibold text-[#12233D] text-[15px] mb-2">
-                {s.title}
-              </h4>
-              <p className="text-[#4B5563] text-[13.5px] leading-relaxed">
-                {s.desc}
-              </p>
-            </motion.div>
-          ))}
+          {standards.map((s, i) => {
+            const accents = [
+              { color: "#5e8722", bg: "rgba(157,205,74,0.20)" },
+              { color: "#0738A6", bg: "rgba(7,56,166,0.10)" },
+              { color: "#7A1F7A", bg: "rgba(122,31,122,0.12)" },
+              { color: "#9c7611", bg: "rgba(242,193,78,0.22)" },
+            ];
+            const a = accents[i % accents.length];
+            return (
+              <motion.div
+                key={s.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: i * 0.06 }}
+                className="bg-white border border-[#E9EEF5] rounded-2xl p-6 card-hover"
+              >
+                <div
+                  className="w-11 h-11 rounded-xl flex items-center justify-center mb-4"
+                  style={{ background: a.bg }}
+                >
+                  <s.icon className="w-5 h-5" style={{ color: a.color }} />
+                </div>
+                <h4 className="font-display font-semibold text-[#12233D] text-[15px] mb-2">
+                  {s.title}
+                </h4>
+                <p className="text-[#4B5563] text-[13.5px] leading-relaxed">
+                  {s.desc}
+                </p>
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Women's Health */}

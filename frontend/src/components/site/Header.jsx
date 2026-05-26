@@ -8,20 +8,46 @@ import {
   MapPin,
   ArrowUpRight,
   ShieldCheck,
+  ChevronDown,
+  Stethoscope,
+  Microscope,
+  Wind,
+  Dna,
+  Heart,
+  User,
+  Sparkles,
 } from "lucide-react";
 
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "What We Make", href: "#what-we-make" },
-  { label: "Products", href: "#products" },
+  {
+    label: "Pharmaceuticals",
+    href: "#products",
+    dropdown: [
+      { icon: Stethoscope, label: "Critical Care", href: "#products", color: "#E84D6C" },
+      { icon: Microscope, label: "Oncology", href: "#products", color: "#0738A6" },
+      { icon: Wind, label: "MDI Inhalers", href: "#products", color: "#62C7F5" },
+      { icon: Dna, label: "Biologicals", href: "#products", color: "#7A1F7A" },
+    ],
+  },
+  {
+    label: "Nutraceuticals",
+    href: "#nutraceuticals",
+    dropdown: [
+      { icon: Heart, label: "Women's Health", href: "#nutraceuticals", color: "#E84D6C" },
+      { icon: User, label: "Men's Health", href: "#nutraceuticals", color: "#0738A6" },
+      { icon: Sparkles, label: "General Wellness", href: "#nutraceuticals", color: "#9DCD4A" },
+    ],
+  },
   { label: "Why Shobha", href: "#why" },
-  { label: "Global", href: "#global" },
-  { label: "Contact", href: "#contact" },
+  { label: "Global Presence", href: "#global" },
+  { label: "Contact Us", href: "#contact" },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null); // for mobile accordion
 
   return (
     <header
@@ -29,7 +55,7 @@ export default function Header() {
       className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#E9EEF5]"
     >
       {/* Utility bar */}
-      <div className="bg-[#12233D] text-[#E9EEF5] text-[11.5px]">
+      <div className="bg-gradient-to-r from-[#12233D] via-[#0738A6] to-[#7A1F7A] text-[#E9EEF5] text-[11.5px]">
         <div className="container-x flex items-center justify-between py-1.5 gap-4">
           <div className="flex items-center gap-4 min-w-0">
             <span className="hidden md:inline-flex items-center gap-1.5">
@@ -37,21 +63,21 @@ export default function Header() {
               +971 58 593 7521
             </span>
             <span className="hidden lg:inline-flex items-center gap-1.5">
-              <Mail className="w-3 h-3 text-[#62C7F5]" />
+              <Mail className="w-3 h-3 text-[#9DCD4A]" />
               prarthana.m@outlook.com
             </span>
             <span className="inline-flex items-center gap-1.5">
-              <MapPin className="w-3 h-3 text-[#62C7F5]" />
+              <MapPin className="w-3 h-3 text-[#F2C14E]" />
               Dubai, UAE
             </span>
           </div>
           <div className="hidden md:flex items-center gap-3 text-[11px]">
-            <span className="inline-flex items-center gap-1 text-white/85">
+            <span className="inline-flex items-center gap-1 text-white/90">
               <ShieldCheck className="w-3 h-3 text-[#9DCD4A]" />
               EU-GMP Certified
             </span>
             <span className="opacity-30">·</span>
-            <span className="inline-flex items-center gap-1 text-white/85">
+            <span className="inline-flex items-center gap-1 text-white/90">
               <ShieldCheck className="w-3 h-3 text-[#62C7F5]" />
               WHO-GMP Compliant
             </span>
@@ -60,20 +86,12 @@ export default function Header() {
       </div>
 
       {/* Main nav */}
-      <div className="container-x flex items-center justify-between py-2.5 gap-6">
-        <Logo className="h-14 md:h-16 w-auto" />
+      <div className="container-x flex items-center justify-between py-2 gap-6">
+        <Logo className="h-16 md:h-20 w-auto" />
 
-        <nav className="hidden lg:flex items-center gap-6">
+        <nav className="hidden xl:flex items-center gap-1.5">
           {navLinks.map((l) => (
-            <a
-              key={l.label}
-              data-testid={`nav-${l.label.toLowerCase().replace(/\s+/g, "-")}`}
-              href={l.href}
-              className="text-[13.5px] font-medium text-[#12233D] hover:text-[#0738A6] transition-colors relative group"
-            >
-              {l.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#0738A6] group-hover:w-full transition-all duration-300" />
-            </a>
+            <NavItem key={l.label} item={l} />
           ))}
         </nav>
 
@@ -88,7 +106,7 @@ export default function Header() {
           </a>
           <button
             data-testid="mobile-menu-toggle"
-            className="lg:hidden p-2 text-[#12233D]"
+            className="xl:hidden p-2 text-[#12233D]"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >
@@ -99,22 +117,62 @@ export default function Header() {
 
       {/* Mobile menu */}
       {open && (
-        <div className="lg:hidden border-t border-[#E9EEF5] bg-white">
-          <div className="container-x py-4 flex flex-col gap-2">
+        <div className="xl:hidden border-t border-[#E9EEF5] bg-white max-h-[calc(100vh-120px)] overflow-y-auto">
+          <div className="container-x py-4 flex flex-col gap-1">
             {navLinks.map((l) => (
-              <a
-                key={l.label}
-                href={l.href}
-                onClick={() => setOpen(false)}
-                className="py-2 text-[#12233D] font-medium hover:text-[#0738A6] border-b border-[#E9EEF5] last:border-0"
-              >
-                {l.label}
-              </a>
+              <div key={l.label}>
+                {l.dropdown ? (
+                  <div>
+                    <button
+                      onClick={() =>
+                        setOpenDropdown(openDropdown === l.label ? null : l.label)
+                      }
+                      className="w-full py-3 flex items-center justify-between text-[#12233D] font-medium border-b border-[#E9EEF5]"
+                    >
+                      {l.label}
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform ${
+                          openDropdown === l.label ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                    {openDropdown === l.label && (
+                      <div className="pl-4 py-2 space-y-1">
+                        {l.dropdown.map((sub) => (
+                          <a
+                            key={sub.label}
+                            href={sub.href}
+                            onClick={() => {
+                              setOpen(false);
+                              setOpenDropdown(null);
+                            }}
+                            className="flex items-center gap-3 py-2 text-[#4B5563] text-sm hover:text-[#0738A6]"
+                          >
+                            <sub.icon
+                              className="w-4 h-4"
+                              style={{ color: sub.color }}
+                            />
+                            {sub.label}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <a
+                    href={l.href}
+                    onClick={() => setOpen(false)}
+                    className="block py-3 text-[#12233D] font-medium border-b border-[#E9EEF5]"
+                  >
+                    {l.label}
+                  </a>
+                )}
+              </div>
             ))}
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="btn-primary justify-center mt-2"
+              className="btn-primary justify-center mt-4"
             >
               Partner With Us
               <ArrowUpRight className="w-4 h-4" />
@@ -123,5 +181,57 @@ export default function Header() {
         </div>
       )}
     </header>
+  );
+}
+
+function NavItem({ item }) {
+  const [hover, setHover] = useState(false);
+  const hasDropdown = !!item.dropdown;
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => hasDropdown && setHover(true)}
+      onMouseLeave={() => hasDropdown && setHover(false)}
+    >
+      <a
+        data-testid={`nav-${item.label.toLowerCase().replace(/\s+/g, "-")}`}
+        href={item.href}
+        className="flex items-center gap-1 px-3 py-2 text-[13.5px] font-medium text-[#12233D] hover:text-[#0738A6] transition-colors rounded-lg hover:bg-[#F7FAFD]"
+      >
+        {item.label}
+        {hasDropdown && (
+          <ChevronDown
+            className={`w-3.5 h-3.5 transition-transform ${
+              hover ? "rotate-180" : ""
+            }`}
+          />
+        )}
+      </a>
+      {hasDropdown && hover && (
+        <div className="absolute top-full left-0 pt-2 z-50 min-w-[260px]">
+          <div className="bg-white border border-[#E9EEF5] rounded-2xl shadow-[0_18px_50px_rgba(7,56,166,0.12)] p-2 animate-in fade-in slide-in-from-top-2">
+            {item.dropdown.map((sub) => (
+              <a
+                key={sub.label}
+                data-testid={`dropdown-${sub.label.toLowerCase().replace(/[^a-z]+/g, "-")}`}
+                href={sub.href}
+                className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-[#F7FAFD] group/sub transition-colors"
+              >
+                <div
+                  className="w-9 h-9 rounded-lg flex items-center justify-center transition-transform group-hover/sub:scale-110"
+                  style={{ background: `${sub.color}1A` }}
+                >
+                  <sub.icon className="w-4 h-4" style={{ color: sub.color }} />
+                </div>
+                <span className="text-[14px] font-medium text-[#12233D] group-hover/sub:text-[#0738A6]">
+                  {sub.label}
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
   );
 }

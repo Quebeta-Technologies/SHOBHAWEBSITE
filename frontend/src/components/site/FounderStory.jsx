@@ -7,10 +7,14 @@ export default function FounderStory() {
     <section
       id="founder"
       data-testid="founder-story"
-      className="py-20 md:py-28 bg-[#12233D] text-white relative overflow-hidden"
+      className="py-20 md:py-28 text-white relative overflow-hidden"
+      style={{
+        background:
+          "linear-gradient(135deg, #7A1F7A 0%, #12233D 55%, #0738A6 100%)",
+      }}
     >
-      <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-[#0738A6]/30 blur-3xl" />
-      <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-[#62C7F5]/15 blur-3xl" />
+      <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-[#E84D6C]/15 blur-3xl" />
+      <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-[#9DCD4A]/12 blur-3xl" />
 
       <div className="container-x relative grid lg:grid-cols-12 gap-12 items-center">
         <div className="lg:col-span-5 relative">
@@ -51,7 +55,7 @@ export default function FounderStory() {
           transition={{ duration: 0.7 }}
           className="lg:col-span-7"
         >
-          <span className="text-[#62C7F5] text-[11px] font-bold tracking-[0.22em] uppercase">
+          <span className="text-[#F2C14E] text-[11px] font-bold tracking-[0.22em] uppercase">
             The Story Behind Shobha
           </span>
           <h2 className="mt-4 font-display font-semibold text-white text-2xl sm:text-3xl lg:text-[36px] tracking-tight leading-[1.15]">

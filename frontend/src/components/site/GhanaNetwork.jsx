@@ -16,14 +16,14 @@ export default function GhanaNetwork() {
       className="py-20 md:py-28 bg-white relative overflow-hidden"
     >
       <div className="container-x">
-        <div className="rounded-3xl bg-gradient-to-br from-[#0738A6] to-[#12233D] text-white p-8 md:p-14 relative overflow-hidden">
-          <div className="absolute -top-24 -right-24 w-[400px] h-[400px] rounded-full bg-[#62C7F5]/15 blur-3xl" />
-          <div className="absolute -bottom-24 -left-24 w-[400px] h-[400px] rounded-full bg-[#9DCD4A]/10 blur-3xl" />
+        <div className="rounded-3xl bg-gradient-to-br from-[#7A1F7A] via-[#0738A6] to-[#12233D] text-white p-8 md:p-14 relative overflow-hidden">
+          <div className="absolute -top-24 -right-24 w-[400px] h-[400px] rounded-full bg-[#9DCD4A]/20 blur-3xl" />
+          <div className="absolute -bottom-24 -left-24 w-[400px] h-[400px] rounded-full bg-[#F2C14E]/15 blur-3xl" />
           <div className="absolute inset-0 dot-grid opacity-20" />
 
           <div className="relative grid lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-6">
-              <span className="text-[#62C7F5] text-[11px] font-bold tracking-[0.22em] uppercase">
+              <span className="text-[#9DCD4A] text-[11px] font-bold tracking-[0.22em] uppercase">
                 Ghana Distribution Network
               </span>
               <h2 className="mt-4 font-display font-semibold text-white text-2xl md:text-3xl lg:text-[34px] leading-[1.15] tracking-tight">

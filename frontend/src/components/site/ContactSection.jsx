@@ -46,10 +46,15 @@ export default function ContactSection() {
       {/* Final CTA band */}
       <section
         data-testid="final-cta-band"
-        className="bg-[#0738A6] relative overflow-hidden"
+        className="relative overflow-hidden"
+        style={{
+          background:
+            "linear-gradient(120deg, #0738A6 0%, #7A1F7A 55%, #9DCD4A 100%)",
+        }}
       >
-        <div className="absolute inset-0 dot-grid opacity-30 pointer-events-none" />
-        <div className="absolute -top-32 -right-32 w-[400px] h-[400px] rounded-full bg-[#62C7F5]/20 blur-3xl" />
+        <div className="absolute inset-0 dot-grid opacity-25 pointer-events-none" />
+        <div className="absolute -top-32 -right-32 w-[420px] h-[420px] rounded-full bg-[#62C7F5]/25 blur-3xl" />
+        <div className="absolute -bottom-32 -left-32 w-[420px] h-[420px] rounded-full bg-[#F2C14E]/20 blur-3xl" />
         <div className="container-x relative py-20 md:py-28 grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-8">
             <h2 className="font-display font-semibold text-white text-3xl md:text-4xl lg:text-[44px] leading-[1.1] tracking-tight">
