@@ -1,6 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
 
+const STEP_COLORS = [
+  "#0738A6",
+  "#9DCD4A",
+  "#F2C14E",
+  "#7A1F7A",
+  "#62C7F5",
+  "#E84D6C",
+];
+
 const steps = [
   {
     title: "Ingredient Sourcing & Supplier Qualification",
@@ -67,7 +76,10 @@ export default function QualityProcess() {
                 transition={{ duration: 0.5, delay: (i % 3) * 0.08 }}
                 className="relative"
               >
-                <div className="relative z-10 w-14 h-14 rounded-2xl bg-[#0738A6] text-white flex items-center justify-center font-display font-bold text-lg shadow-[0_10px_24px_rgba(7,56,166,0.25)]">
+                <div
+                  className="relative z-10 w-14 h-14 rounded-2xl text-white flex items-center justify-center font-display font-bold text-lg shadow-[0_10px_24px_rgba(7,56,166,0.18)]"
+                  style={{ background: STEP_COLORS[i % STEP_COLORS.length] }}
+                >
                   {i + 1}
                 </div>
                 <h3 className="mt-5 font-display font-semibold text-[#12233D] text-[16px] leading-snug">

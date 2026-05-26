@@ -5,18 +5,24 @@ import { Briefcase, UserCircle2, FlaskConical } from "lucide-react";
 const team = [
   {
     icon: Briefcase,
+    color: "#0738A6",
+    bg: "rgba(7,56,166,0.10)",
     name: "Mr. Jagdish Maheshwari",
     role: "Founder & CEO",
     desc: "30+ years in pharmaceutical manufacturing and global distribution. Co-founder of Greenwich Therapeutics & United Pharma, Ghana.",
   },
   {
     icon: UserCircle2,
+    color: "#E84D6C",
+    bg: "rgba(232,77,108,0.13)",
     name: "Prarthana Maheshwari",
     role: "Business Development & Operations",
     desc: "Leads business development, partner onboarding, and day-to-day operations. Primary contact for new partnerships.",
   },
   {
     icon: FlaskConical,
+    color: "#7A1F7A",
+    bg: "rgba(122,31,122,0.12)",
     name: "Regulatory Affairs Team",
     role: "Regulatory & Compliance",
     desc: "Manages product registrations, import approvals, and compliance documentation across 20+ markets globally.",
@@ -50,13 +56,19 @@ export default function Team() {
               transition={{ duration: 0.5, delay: i * 0.08 }}
               className="card-hover bg-[#F7FAFD] border border-[#E9EEF5] rounded-2xl p-8"
             >
-              <div className="w-16 h-16 rounded-2xl bg-[#0738A6] text-white flex items-center justify-center mb-5">
-                <m.icon className="w-7 h-7" />
+              <div
+                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5"
+                style={{ background: m.color }}
+              >
+                <m.icon className="w-7 h-7 text-white" />
               </div>
               <h3 className="font-display font-semibold text-[#12233D] text-lg">
                 {m.name}
               </h3>
-              <div className="text-[#0738A6] font-semibold text-[12px] uppercase tracking-widest mt-1">
+              <div
+                className="font-semibold text-[12px] uppercase tracking-widest mt-1"
+                style={{ color: m.color }}
+              >
                 {m.role}
               </div>
               <p className="mt-4 text-[#4B5563] text-[14px] leading-relaxed">

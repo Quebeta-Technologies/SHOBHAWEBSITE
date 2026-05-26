@@ -10,6 +10,15 @@ const ICONS = {
   uae: MapPin,
 };
 
+const ACCENT_COLORS = [
+  { color: "#0738A6", bg: "rgba(7,56,166,0.10)" },     // Primary Blue
+  { color: "#9DCD4A", bg: "rgba(157,205,74,0.18)" },   // Wellness Green
+  { color: "#F2C14E", bg: "rgba(242,193,78,0.22)" },   // Warm Gold
+  { color: "#E84D6C", bg: "rgba(232,77,108,0.13)" },   // Care Coral
+  { color: "#7A1F7A", bg: "rgba(122,31,122,0.12)" },   // Premium Purple
+  { color: "#62C7F5", bg: "rgba(98,199,245,0.20)" },   // Healthcare Cyan
+];
+
 const defaultIcons = ["countries", "products", "eugmp", "who"];
 
 export default function TrustStrip({ items }) {
@@ -26,6 +35,7 @@ export default function TrustStrip({ items }) {
           <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-[#E9EEF5]">
             {items.map((it, i) => {
               const Icon = ICONS[it.icon] || ICONS[defaultIcons[i]] || Package;
+              const accent = ACCENT_COLORS[i % ACCENT_COLORS.length];
               return (
                 <motion.div
                   key={i}
@@ -35,8 +45,14 @@ export default function TrustStrip({ items }) {
                   transition={{ duration: 0.5, delay: i * 0.08 }}
                   className="flex items-center gap-4 px-5 md:px-7 py-6 md:py-7 group"
                 >
-                  <div className="shrink-0 w-12 h-12 rounded-xl bg-[#0738A6]/[0.07] flex items-center justify-center group-hover:bg-[#0738A6] transition-colors duration-300">
-                    <Icon className="w-6 h-6 text-[#0738A6] group-hover:text-white transition-colors duration-300" />
+                  <div
+                    className="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                    style={{ background: accent.bg }}
+                  >
+                    <Icon
+                      className="w-6 h-6 transition-colors"
+                      style={{ color: accent.color }}
+                    />
                   </div>
                   <div className="min-w-0">
                     <div className="font-display text-[22px] md:text-[26px] font-bold text-[#12233D] tracking-tight leading-none">
@@ -52,7 +68,7 @@ export default function TrustStrip({ items }) {
           </div>
         </div>
       </div>
-      <div className="h-10 md:h-14" />
+      <div className="h-4 md:h-6" />
     </section>
   );
 }

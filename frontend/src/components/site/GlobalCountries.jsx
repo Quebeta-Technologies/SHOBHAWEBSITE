@@ -2,10 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const regions = [
-  { icon: "🌍", name: "West Africa", note: "8 Countries" },
-  { icon: "🌐", name: "East Africa", note: "Kenya & More" },
-  { icon: "🌏", name: "Southeast Asia", note: "4 Countries" },
-  { icon: "🕌", name: "Middle East", note: "UAE & GCC" },
+  { icon: "🌍", name: "West Africa", note: "8 Countries", color: "#9DCD4A", bg: "rgba(157,205,74,0.18)" },
+  { icon: "🌐", name: "East Africa", note: "Kenya & More", color: "#F2C14E", bg: "rgba(242,193,78,0.22)" },
+  { icon: "🌏", name: "Southeast Asia", note: "4 Countries", color: "#62C7F5", bg: "rgba(98,199,245,0.20)" },
+  { icon: "🕌", name: "Middle East", note: "UAE & GCC", color: "#7A1F7A", bg: "rgba(122,31,122,0.12)" },
 ];
 
 const countries = [

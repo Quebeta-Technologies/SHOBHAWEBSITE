@@ -5,21 +5,29 @@ import { Globe2, Pill, Hospital, Factory } from "lucide-react";
 const partners = [
   {
     icon: Globe2,
+    color: "#62C7F5",
+    bg: "rgba(98,199,245,0.20)",
     name: "Shobha Global",
     desc: "International operations partner supporting global expansion and market access strategy",
   },
   {
     icon: Pill,
+    color: "#E84D6C",
+    bg: "rgba(232,77,108,0.13)",
     name: "Trident Pharmaceuticals",
     desc: "Distribution collaborator strengthening supply chain capabilities and product portfolio",
   },
   {
     icon: Hospital,
+    color: "#9DCD4A",
+    bg: "rgba(157,205,74,0.18)",
     name: "TIL Healthcare",
     desc: "Healthcare collaborator with strong institutional pharmaceutical supply network",
   },
   {
     icon: Factory,
+    color: "#F2C14E",
+    bg: "rgba(242,193,78,0.22)",
     name: "Medisol Lifescience",
     desc: "EU-GMP & WHO-GMP certified manufacturing partner — Valsad, Gujarat, India",
   },
@@ -56,8 +64,11 @@ export default function PartnersSection() {
               transition={{ duration: 0.45, delay: i * 0.07 }}
               className="card-hover bg-white border border-[#E9EEF5] rounded-2xl p-6"
             >
-              <div className="w-12 h-12 rounded-xl bg-[#62C7F5]/15 flex items-center justify-center mb-4">
-                <p.icon className="w-6 h-6 text-[#0738A6]" />
+              <div
+                className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
+                style={{ background: p.bg }}
+              >
+                <p.icon className="w-6 h-6" style={{ color: p.color }} />
               </div>
               <h3 className="font-display font-semibold text-[#12233D] text-[16px] mb-2 leading-snug">
                 {p.name}

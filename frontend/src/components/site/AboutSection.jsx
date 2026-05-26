@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Check, Award } from "lucide-react";
+import { Check, Award, Sparkles, Globe2, Pill } from "lucide-react";
 
 const points = [
   "End-to-end capability — from manufacturing to global distribution",
@@ -14,32 +14,98 @@ export default function AboutSection() {
     <section
       id="about"
       data-testid="about-section"
-      className="py-20 md:py-28 bg-white"
+      className="pt-6 md:pt-10 pb-20 md:pb-24 bg-white"
     >
       <div className="container-x grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         <div className="lg:col-span-6 relative">
-          <div className="relative rounded-3xl overflow-hidden aspect-[5/6] shadow-[0_30px_80px_rgba(7,56,166,0.18)]">
+          <div className="relative rounded-3xl overflow-hidden shadow-[0_30px_80px_rgba(7,56,166,0.18)]">
             <img
-              src="https://images.unsplash.com/photo-1582719188393-bb71ca45dbb9?auto=format&fit=crop&q=80&w=1200"
-              alt="Pharmaceutical manufacturing"
-              className="w-full h-full object-cover"
+              src="/brand/aboutus.png"
+              alt="Shobha Healthcare — manufacturing, products & global reach"
+              className="w-full h-auto block"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#12233D]/40 via-transparent to-transparent" />
           </div>
-          {/* Floating award chip */}
-          <div className="absolute -bottom-6 -right-4 md:-right-8 bg-white border border-[#E9EEF5] rounded-2xl p-5 shadow-xl max-w-[240px] flex items-center gap-3">
-            <div className="w-12 h-12 rounded-xl bg-[#F2C14E]/15 flex items-center justify-center">
-              <Award className="w-6 h-6 text-[#F2C14E]" />
+
+          {/* Floating accent chips — using all brand palette colors */}
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, delay: 0.1 }}
+            className="absolute -top-4 -left-3 md:-left-6 bg-white border border-[#E9EEF5] rounded-2xl px-4 py-3 shadow-xl flex items-center gap-2.5 animate-float-slow"
+          >
+            <div className="w-9 h-9 rounded-xl bg-[#F2C14E]/20 flex items-center justify-center">
+              <Award className="w-4 h-4 text-[#9c7611]" />
             </div>
             <div>
-              <div className="text-[10px] uppercase tracking-widest text-[#4B5563] font-bold">
+              <div className="text-[9px] uppercase tracking-widest text-[#4B5563] font-bold">
                 Founded
               </div>
-              <div className="text-[#12233D] font-display font-semibold leading-snug text-sm">
-                2025 · Dubai, UAE
+              <div className="text-[#12233D] font-display font-semibold text-[13px]">
+                2025 · Dubai
               </div>
             </div>
-          </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 14 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, delay: 0.2 }}
+            className="absolute top-1/3 -right-3 md:-right-6 bg-white border border-[#E9EEF5] rounded-2xl px-4 py-3 shadow-xl flex items-center gap-2.5"
+          >
+            <div className="w-9 h-9 rounded-xl bg-[#9DCD4A]/20 flex items-center justify-center">
+              <Globe2 className="w-4 h-4 text-[#5e8722]" />
+            </div>
+            <div>
+              <div className="text-[9px] uppercase tracking-widest text-[#4B5563] font-bold">
+                Markets
+              </div>
+              <div className="text-[#12233D] font-display font-semibold text-[13px]">
+                20+ Countries
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: -14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, delay: 0.3 }}
+            className="absolute -bottom-4 left-6 md:left-12 bg-white border border-[#E9EEF5] rounded-2xl px-4 py-3 shadow-xl flex items-center gap-2.5"
+          >
+            <div className="w-9 h-9 rounded-xl bg-[#62C7F5]/25 flex items-center justify-center">
+              <Pill className="w-4 h-4 text-[#0738A6]" />
+            </div>
+            <div>
+              <div className="text-[9px] uppercase tracking-widest text-[#4B5563] font-bold">
+                Portfolio
+              </div>
+              <div className="text-[#12233D] font-display font-semibold text-[13px]">
+                50+ Products
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55, delay: 0.4 }}
+            className="absolute -bottom-5 -right-3 md:-right-6 bg-white border border-[#E9EEF5] rounded-2xl px-4 py-3 shadow-xl flex items-center gap-2.5 animate-float-slow"
+          >
+            <div className="w-9 h-9 rounded-xl bg-[#E84D6C]/15 flex items-center justify-center">
+              <Sparkles className="w-4 h-4 text-[#E84D6C]" />
+            </div>
+            <div>
+              <div className="text-[9px] uppercase tracking-widest text-[#4B5563] font-bold">
+                Trust
+              </div>
+              <div className="text-[#12233D] font-display font-semibold text-[13px]">
+                EU-GMP Certified
+              </div>
+            </div>
+          </motion.div>
         </div>
 
         <motion.div
