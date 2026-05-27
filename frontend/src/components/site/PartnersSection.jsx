@@ -2,12 +2,36 @@ import React from "react";
 import Marquee from "react-fast-marquee";
 
 const partners = [
-  { name: "Shobha Global", color: "#0738A6" },
-  { name: "Trident Pharmaceuticals", color: "#E84D6C" },
-  { name: "TIL Healthcare", color: "#9DCD4A" },
-  { name: "Medisol Lifescience", color: "#F2C14E" },
-  { name: "Greenwich Therapeutics", color: "#7A1F7A" },
-  { name: "United Pharma Ghana", color: "#62C7F5" },
+  { 
+    name: "Shobha Global", 
+    color: "#0738A6",
+    logo: "/brand/shobha-global.png"
+  },
+  { 
+    name: "Trident Pharmaceuticals", 
+    color: "#E84D6C",
+    logo: "/brand/trident.png"
+  },
+  { 
+    name: "TIL Healthcare", 
+    color: "#9DCD4A",
+    logo: "/brand/til-healthcare.png"
+  },
+  { 
+    name: "Medisol Lifescience", 
+    color: "#F2C14E",
+    logo: "/brand/medisol.png"
+  },
+  { 
+    name: "Greenwich Therapeutics", 
+    color: "#7A1F7A",
+    logo: "/brand/greenwich.png"
+  },
+  { 
+    name: "United Pharma Ghana", 
+    color: "#62C7F5",
+    logo: "/brand/united-pharma.png"
+  },
 ];
 
 function PartnerPlaque({ p }) {
@@ -23,10 +47,24 @@ function PartnerPlaque({ p }) {
         style={{ minWidth: 280 }}
       >
         <div
-          className="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center font-display font-bold text-white text-base transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
-          style={{ background: p.color }}
+          className="shrink-0 w-12 h-12 rounded-xl flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
+          style={{ background: p.logo ? "#fff" : p.color, border: p.logo ? `1.5px solid #E9EEF5` : "none" }}
         >
-          {initials}
+          {p.logo ? (
+            <img
+              src={p.logo}
+              alt={p.name}
+              className="w-full h-full object-contain p-1"
+              onError={(e) => {
+                e.target.style.display = "none";
+                e.target.parentNode.innerHTML = `<span style="color:white;font-weight:bold;font-size:14px;background:${p.color};width:100%;height:100%;display:flex;align-items:center;justify-content:center;border-radius:10px">${initials}</span>`;
+              }}
+            />
+          ) : (
+            <span className="font-display font-bold text-white text-base">
+              {initials}
+            </span>
+          )}
         </div>
         <span className="font-display font-semibold text-[#12233D] text-[17px] whitespace-nowrap tracking-tight">
           {p.name}
