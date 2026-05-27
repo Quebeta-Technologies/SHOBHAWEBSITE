@@ -23,7 +23,7 @@ const products = [
     desc:
       "Higher-strength inhaled steroid for moderate-to-severe asthma. Proven, reliable, and accessible for long-term management.",
     color: "#62C7F5",
-    image: "/brand/shoba250.png",
+    image: "/brand/shobha250.png",
   },
   {
     cat: "Oncology",
