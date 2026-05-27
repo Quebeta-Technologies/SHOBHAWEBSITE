@@ -48,6 +48,28 @@ const defaultSlides = [
     cta_link: "#products"
   }
 ];
+const defaultTrustItems = [
+  {
+    icon: "countries",
+    label: "Global Presence",
+    value: "15+ Countries"
+  },
+  {
+    icon: "products",
+    label: "Product Range",
+    value: "200+ Products"
+  },
+  {
+    icon: "eugmp",
+    label: "Certified",
+    value: "EU-GMP Compliant"
+  },
+  {
+    icon: "who",
+    label: "Standard",
+    value: "WHO-GMP Certified"
+  }
+];
   useEffect(() => {
     api
       .get("/content/homepage")
@@ -59,7 +81,7 @@ const defaultSlides = [
     <div data-testid="home-page" className="bg-white">
       <Header />
       <HeroCarousel slides={content?.hero_slides?.length ? content.hero_slides : defaultSlides} />
-      <TrustStrip items={content?.trust_strip || []} />
+      <TrustStrip items={content?.trust_strip?.length ? content.trust_strip : defaultTrustItems} />
       <AboutSection />
       <WhatWeMake />
       <ProductRange />
