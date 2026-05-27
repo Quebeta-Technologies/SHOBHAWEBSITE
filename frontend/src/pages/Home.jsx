@@ -19,7 +19,35 @@ import { api } from "../lib/api";
 
 export default function Home() {
   const [content, setContent] = useState(null);
-
+const defaultSlides = [
+  {
+    id: 1,
+    image_url: "/brand/hero-main.png",
+    eyebrow: "WHO-GMP Certified",
+    headline: "Good Medicine Should Be Within Everyone's Reach",
+    subheadline: "Shobha Healthcare delivers high-quality pharmaceutical products across UAE and global markets.",
+    cta_label: "View Products",
+    cta_link: "#products"
+  },
+  {
+    id: 2,
+    image_url: "/brand/hero-pharma.png",
+    eyebrow: "EU-GMP Compliant",
+    headline: "Trusted by Clinicians Across the Globe",
+    subheadline: "From MDI Inhalers to Oncology — reliable medicines for every patient.",
+    cta_label: "Partner With Us",
+    cta_link: "#contact"
+  },
+  {
+    id: 3,
+    image_url: "/brand/hero-nutra.png",
+    eyebrow: "Global Standards",
+    headline: "Expanding Access to Quality Healthcare",
+    subheadline: "Serving patients across UAE, Ghana, and beyond with trusted pharmaceutical solutions.",
+    cta_label: "Our Products",
+    cta_link: "#products"
+  }
+];
   useEffect(() => {
     api
       .get("/content/homepage")
@@ -30,7 +58,7 @@ export default function Home() {
   return (
     <div data-testid="home-page" className="bg-white">
       <Header />
-      <HeroCarousel slides={content?.hero_slides || []} />
+      <HeroCarousel slides={content?.hero_slides?.length ? content.hero_slides : defaultSlides} />
       <TrustStrip items={content?.trust_strip || []} />
       <AboutSection />
       <WhatWeMake />
