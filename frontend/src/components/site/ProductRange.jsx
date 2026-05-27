@@ -33,7 +33,7 @@ const products = [
     desc:
       "Cornerstone chemotherapy for lung, ovarian, and head & neck cancers. IV infusion after dilution.",
     color: "#0738A6",
-    image: "/brand/shobha 2.png",
+    image: "/brand/Shobhaprabo.png",
   },
   {
     cat: "Oncology",
