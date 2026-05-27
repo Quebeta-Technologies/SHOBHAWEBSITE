@@ -43,6 +43,7 @@ const products = [
     desc:
       "Hormone therapy for ER-positive breast cancer. One of the most established cancer medicines available globally.",
     color: "#0738A6",
+    image: "/brand/shobhatoma.png",
   },
   {
     cat: "Oncology",
@@ -52,6 +53,7 @@ const products = [
     desc:
       "Oral chemotherapy for breast and colorectal cancers. Easier to administer than IV therapy and equally effective.",
     color: "#0738A6",
+    image: "/brand/shobhaprac.png",
   },
   {
     cat: "Oncology",
@@ -61,6 +63,7 @@ const products = [
     desc:
       "One of the most widely used chemotherapy drugs globally — effective against testicular, bladder, lung, and ovarian cancers.",
     color: "#0738A6",
+    image: "/brand/shobhashop.png",
   },
 ];
 
