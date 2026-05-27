@@ -108,7 +108,7 @@ export default function NutraceuticalsSection() {
           {/* Background image — wellness/nature */}
           <div className="absolute top-0 left-4 md:left-12 w-[78%] h-[80%] rounded-[28px] overflow-hidden shadow-[0_30px_80px_rgba(7,56,166,0.18)]">
             <img
-              src="frontend/public/brand/running.png"
+              src="/brand/running.png"
               alt="Nutraceutical wellness supplements"
               className="w-full h-full object-cover"
             />
