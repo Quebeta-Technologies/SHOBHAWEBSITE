@@ -104,10 +104,7 @@ export default function Footer() {
             </span>
           </div>
         </div>
-        <div className="container-x pb-5 text-[11.5px] text-white/40 max-w-3xl">
-          Product availability may vary by country and is subject to local
-          regulatory approval and registration requirements.
-        </div>
+        
       </div>
     </footer>
   );
