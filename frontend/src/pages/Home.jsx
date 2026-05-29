@@ -55,7 +55,7 @@ export default function Home() {
     { icon: "countries", label: "Global Presence", value: "4 Continents" },
     { icon: "products", label: "Reach", value: "15+ Countries" },
     { icon: "eugmp", label: "Portfolio", value: "50+ Products" },
-    { icon: "who", label: "Legacy", value: "20+ Years Experience" }
+    { icon: "who", label: "Legacy", value: "20+ Years" }
   ];
 
   useEffect(() => {
