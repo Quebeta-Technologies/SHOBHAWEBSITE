@@ -18,64 +18,46 @@ import Footer from "../components/site/Footer";
 import { api } from "../lib/api";
 import WhatsAppFloat from "../components/site/WhatsAppFloat";
 
-// Inside your return:
-<>
-  {/* your existing content */}
-  <WhatsAppFloat />
-</>
 export default function Home() {
   const [content, setContent] = useState(null);
-const defaultSlides = [
-  {
-    id: 1,
-    image_url: "/brand/hero-main.png",
-    eyebrow: "WHO-GMP Certified",
-    headline: "Good Medicine Should Be Within Everyone's Reach",
-    subheadline: "Shobha Healthcare delivers high-quality pharmaceutical products across UAE and global markets.",
-    cta_label: "View Products",
-    cta_link: "#products"
-  },
-  {
-    id: 2,
-    image_url: "/brand/hero-pharma.png",
-    eyebrow: "EU-GMP Compliant",
-    headline: "Trusted by Clinicians Across the Globe",
-    subheadline: "From MDI Inhalers to Oncology — reliable medicines for every patient.",
-    cta_label: "Partner With Us",
-    cta_link: "#contact"
-  },
-  {
-    id: 3,
-    image_url: "/brand/hero-nutra.png",
-    eyebrow: "Global Standards",
-    headline: "Expanding Access to Quality Healthcare",
-    subheadline: "Serving patients across UAE, Ghana, and beyond with trusted pharmaceutical solutions.",
-    cta_label: "Our Products",
-    cta_link: "#products"
-  }
-];
-const defaultTrustItems = [
-  {
-    icon: "countries",
-    label: "Global Presence",
-    value: "4 Countries"
-  },
-  {
-    icon: "products",
-    label: "Product Range",
-    value: "50+ Products"
-  },
-  {
-    icon: "eugmp",
-    label: "Certified",
-    value: "EU-GMP Compliant"
-  },
-  {
-    icon: "who",
-    label: "Standard",
-    value: "WHO-GMP Certified"
-  }
-];
+
+  const defaultSlides = [
+    {
+      id: 1,
+      image_url: "/brand/hero-main.png",
+      eyebrow: "WHO-GMP Certified",
+      headline: "Good Medicine Should Be Within Everyone's Reach",
+      subheadline: "Shobha Healthcare delivers high-quality pharmaceutical products across UAE and global markets.",
+      cta_label: "View Products",
+      cta_link: "#products"
+    },
+    {
+      id: 2,
+      image_url: "/brand/hero-pharma.png",
+      eyebrow: "EU-GMP Compliant",
+      headline: "Trusted by Clinicians Across the Globe",
+      subheadline: "From MDI Inhalers to Oncology — reliable medicines for every patient.",
+      cta_label: "Partner With Us",
+      cta_link: "#contact"
+    },
+    {
+      id: 3,
+      image_url: "/brand/hero-nutra.png",
+      eyebrow: "Global Standards",
+      headline: "Expanding Access to Quality Healthcare",
+      subheadline: "Serving patients across UAE, Ghana, and beyond with trusted pharmaceutical solutions.",
+      cta_label: "Our Products",
+      cta_link: "#products"
+    }
+  ];
+
+  const defaultTrustItems = [
+    { icon: "countries", label: "Global Presence", value: "4 Countries" },
+    { icon: "products", label: "Product Range", value: "50+ Products" },
+    { icon: "eugmp", label: "Certified", value: "EU-GMP Compliant" },
+    { icon: "who", label: "Standard", value: "WHO-GMP Certified" }
+  ];
+
   useEffect(() => {
     api
       .get("/content/homepage")
@@ -101,6 +83,7 @@ const defaultTrustItems = [
       <Testimonials />
       <ContactSection />
       <Footer />
+      <WhatsAppFloat />  {/* ✅ CORRECTLY PLACED HERE */}
     </div>
   );
 }
