@@ -10,7 +10,7 @@ export function Logo({ className = "h-25 w-auto" }) {
       aria-label="Shobha Healthcare"
     >
       <img
-        src="/brand/shobha-logo.svg"
+        src="/brand/shologo.svg"
         alt="Shobha Healthcare"
         className={`${className} transition-transform group-hover:scale-105`}
       />
