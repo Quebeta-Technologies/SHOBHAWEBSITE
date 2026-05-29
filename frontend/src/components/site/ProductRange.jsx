@@ -8,10 +8,6 @@ const tabs = [
   "Oncology",
   "Critical Care",
   "Biologicals",
-  "Biosimilars",
-  "Anti Biotics",
-  "Injectables",
-  "Cephalosporins",
 ];
 
 const products = [
@@ -481,11 +477,23 @@ const products = [
 ];
 
 export default function ProductRange() {
-  const [active, setActive] = useState("All Products");
-  const filtered =
-    active === "All Products"
-      ? products
-      : products.filter((p) => p.tabKey === active);
+const [active, setActive] = useState("All Products");
+
+const hiddenCategories = [
+  "Biosimilars",
+  "Anti Biotics",
+  "Injectables",
+  "Cephalosporins",
+];
+
+const visibleProducts = products.filter(
+  (p) => !hiddenCategories.includes(p.tabKey)
+);
+
+const filtered =
+  active === "All Products"
+    ? visibleProducts
+    : visibleProducts.filter((p) => p.tabKey === active);
 
   return (
     <section
