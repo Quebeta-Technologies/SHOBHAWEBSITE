@@ -70,7 +70,7 @@ export default function GlobalCountries() {
           >
             <span className="eyebrow">Global Presence</span>
             <h2 className="mt-3 font-display font-semibold text-[#12233D] text-2xl sm:text-3xl lg:text-[36px] tracking-tight leading-[1.15]">
-              Present in 20+ Countries Across 4 Continents
+              Present in 15+ Countries Across 4 Continents
             </h2>
             <p className="mt-5 text-[#4B5563] text-[15.5px] leading-relaxed">
               From pharmacies in Accra to clinics in Phnom Penh — our medicines
