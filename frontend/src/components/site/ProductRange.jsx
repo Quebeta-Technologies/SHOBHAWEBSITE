@@ -12,7 +12,6 @@ const tabs = [
   "Anti Biotics",
   "Injectables",
   "Cephalosporins",
-  "SUBRAT",
 ];
 
 const products = [
