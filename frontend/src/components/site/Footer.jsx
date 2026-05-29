@@ -32,7 +32,7 @@ export default function Footer() {
     >
       <div className="container-x py-12 grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-4">
-          <div className="bg-white border border-white/10 rounded-2xl p-5 inline-flex">
+          <div>
             <Logo className="h-12 w-auto" />
           </div>
           <p className="mt-6 text-white/70 text-[14px] leading-relaxed max-w-md">
