@@ -202,7 +202,7 @@ DEFAULT_HOMEPAGE = {
     "ghana_stats": [
         {"value": "1,850+", "label": "Pharmacies"},
         {"value": "450+", "label": "Hospitals"},
-        {"value": "70+", "label": "Products"},
+        {"value": "50+", "label": "Products"},
         {"value": "USD 5M", "label": "2026 Target"},
     ],
     "founder_quote": "I didn't want to build another pharmaceutical company. I wanted to build the kind that actually shows up — in the right markets, with the right products, at the right price.",
