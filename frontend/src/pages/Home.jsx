@@ -52,12 +52,12 @@ const defaultTrustItems = [
   {
     icon: "countries",
     label: "Global Presence",
-    value: "15+ Countries"
+    value: "4 Countries"
   },
   {
     icon: "products",
     label: "Product Range",
-    value: "200+ Products"
+    value: "50+ Products"
   },
   {
     icon: "eugmp",
