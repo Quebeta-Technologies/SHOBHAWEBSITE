@@ -52,10 +52,10 @@ export default function Home() {
   ];
 
   const defaultTrustItems = [
-    { icon: "countries", label: "Global Presence", value: "4 Countries" },
-    { icon: "products", label: "Product Range", value: "50+ Products" },
-    { icon: "eugmp", label: "Certified", value: "EU-GMP Compliant" },
-    { icon: "who", label: "Standard", value: "WHO-GMP Certified" }
+    { icon: "countries", label: "Global Presence", value: "4 Continents" },
+    { icon: "products", label: "Product Range", value: "15+ Countries" },
+    { icon: "eugmp", label: "Certified", value: "50+ Products" },
+    { icon: "who", label: "Standard", value: "20+ Years Experience" }
   ];
 
   useEffect(() => {
