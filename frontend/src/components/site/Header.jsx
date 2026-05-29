@@ -87,7 +87,7 @@ export default function Header() {
 
       {/* Main nav */}
       <div className="container-x flex items-center justify-between py-2 gap-6">
-        <Logo className="h-16 md:h-20 w-auto" />
+        <Logo className="h-10 md:h-12 w-auto" />
 
         <nav className="hidden xl:flex items-center gap-1.5">
           {navLinks.map((l) => (
