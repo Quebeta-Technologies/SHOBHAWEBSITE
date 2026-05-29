@@ -115,8 +115,8 @@ export default function ContactSection() {
               />
               <ContactRow
                 label="Email"
-                value="prarthana.m@outlook.com"
-                href="mailto:prarthana.m@outlook.com"
+                value="admin@shobha-healthcare.com"
+                href="mailto:admin@shobha-healthcare.com"
               />
               <ContactRow
                 label="Hours"

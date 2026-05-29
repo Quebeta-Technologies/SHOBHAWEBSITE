@@ -54,11 +54,11 @@ export default function Footer() {
               <span>+971 58 593 7521</span>
             </a>
             <a
-              href="mailto:prarthana.m@outlook.com"
+              href="mailto:admin@shobha-healthcare.com"
               className="flex items-center gap-3 hover:text-white"
             >
               <Mail className="w-4 h-4 text-[#62C7F5]" />
-              <span>prarthana.m@outlook.com</span>
+              <span>admin@shobha-healthcare.com</span>
             </a>
             <div className="flex items-center gap-3">
               <Clock className="w-4 h-4 text-[#62C7F5]" />

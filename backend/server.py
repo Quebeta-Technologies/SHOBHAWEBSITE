@@ -30,7 +30,7 @@ ACCESS_TOKEN_EXPIRE_DAYS = 7
 
 RESEND_API_KEY = os.environ.get("RESEND_API_KEY", "")
 SENDER_EMAIL = os.environ.get("SENDER_EMAIL", "onboarding@resend.dev")
-CONTACT_RECIPIENT_EMAIL = os.environ.get("CONTACT_RECIPIENT_EMAIL", "prarthana.m@outlook.com")
+CONTACT_RECIPIENT_EMAIL = os.environ.get("CONTACT_RECIPIENT_EMAIL", "admin@shobha-healthcare.com")
 
 if RESEND_API_KEY:
     resend.api_key = RESEND_API_KEY
