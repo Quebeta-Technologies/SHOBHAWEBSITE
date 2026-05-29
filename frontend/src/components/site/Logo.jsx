@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export function Logo({ className = "h-25 w-auto" }) {
+export function Logo({ className = "h-16 w-auto" }) {
   return (
     <Link
       to="/"
