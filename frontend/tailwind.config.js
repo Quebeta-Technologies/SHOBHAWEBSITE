@@ -80,3 +80,25 @@ module.exports = {
   },
   plugins: [require("tailwindcss-animate")],
 };
+
+keyframes: {
+    'accordion-down': {
+        from: { height: '0' },
+        to: { height: 'var(--radix-accordion-content-height)' }
+    },
+    'accordion-up': {
+        from: { height: 'var(--radix-accordion-content-height)' },
+        to: { height: '0' }
+    },
+    // ✅ ADD THIS
+    'fade-in': {
+        from: { opacity: '0', transform: 'translateX(10px)' },
+        to:   { opacity: '1', transform: 'translateX(0)' },
+    },
+},
+animation: {
+    'accordion-down': 'accordion-down 0.2s ease-out',
+    'accordion-up': 'accordion-up 0.2s ease-out',
+    // ✅ ADD THIS
+    'fade-in': 'fade-in 0.2s ease',
+},

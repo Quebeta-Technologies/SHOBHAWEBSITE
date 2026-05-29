@@ -16,7 +16,13 @@ import Testimonials from "../components/site/Testimonials";
 import ContactSection from "../components/site/ContactSection";
 import Footer from "../components/site/Footer";
 import { api } from "../lib/api";
+import WhatsAppFloat from "../components/site/WhatsAppFloat";
 
+// Inside your return:
+<>
+  {/* your existing content */}
+  <WhatsAppFloat />
+</>
 export default function Home() {
   const [content, setContent] = useState(null);
 const defaultSlides = [
