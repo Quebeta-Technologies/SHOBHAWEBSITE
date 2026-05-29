@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const stats = [
   { value: "1,850+", label: "Pharmacies" },
   { value: "450+", label: "Hospitals" },
-  { value: "70+", label: "Products" },
+  { value: "50+", label: "Products" },
   { value: "USD 5M", label: "2026 Target" },
 ];
 
