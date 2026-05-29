@@ -33,7 +33,7 @@ export default function Footer() {
       <div className="container-x py-12 grid lg:grid-cols-12 gap-12">
         <div className="lg:col-span-4">
           <div>
-            <Logo className="h-12 w-auto" />
+            <Logo className="h-12 w-auto brightness-0 invert" />
           </div>
           <p className="mt-6 text-white/70 text-[14px] leading-relaxed max-w-md">
             A Dubai-based pharmaceutical manufacturer and exporter — making
