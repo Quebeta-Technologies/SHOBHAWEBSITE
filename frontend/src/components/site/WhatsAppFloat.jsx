@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const WHATSAPP_NUMBER = "971585937521"; // no + or spaces
+const WHATSAPP_NUMBER = "971585937521";
 const MESSAGE = "Hello! I'd like to know more about Shobha Healthcare.";
 
 export default function WhatsAppFloat() {
@@ -22,7 +22,7 @@ export default function WhatsAppFloat() {
       <div className="relative">
         {/* Pulse ring */}
         <span className="absolute inset-0 rounded-full bg-[#25D366] opacity-30 animate-ping" />
-        
+        <a                                        
           href={url}
           target="_blank"
           rel="noopener noreferrer"
