@@ -478,6 +478,7 @@ const products = [
 
 export default function ProductRange() {
 const [active, setActive] = useState("All Products");
+const [showAll, setShowAll] = useState(false);
 
 const hiddenCategories = [
   "Biosimilars",
@@ -494,6 +495,11 @@ const filtered =
   active === "All Products"
     ? visibleProducts
     : visibleProducts.filter((p) => p.tabKey === active);
+
+const displayedProducts =
+  active === "All Products" && !showAll
+    ? filtered.slice(0, 6)
+    : filtered;
 
   return (
     <section
@@ -537,7 +543,7 @@ const filtered =
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {filtered.map((p, i) => (
+          {displayedProducts.map((p, i) => (
             <motion.div
               key={p.name}
               data-testid={`product-${p.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
@@ -581,7 +587,18 @@ const filtered =
               </p>
             </motion.div>
           ))}
+
         </div>
+        {active === "All Products" && filtered.length > 6 && (
+  <div className="flex justify-center mt-10">
+    <button
+      onClick={() => setShowAll(!showAll)}
+      className="px-6 py-3 rounded-full bg-[#0738A6] text-white font-semibold shadow-[0_8px_24px_rgba(7,56,166,0.25)] hover:opacity-90 transition-all"
+    >
+      {showAll ? "Show Less" : "View More Products"}
+    </button>
+  </div>
+)}
       </div>
     </section>
   );
