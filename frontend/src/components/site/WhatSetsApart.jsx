@@ -20,48 +20,42 @@ const items = [
     color: "#0738A6",
     bg: "rgba(7,56,166,0.10)",
     title: "EU-GMP & WHO-GMP Certified",
-    desc:
-      "Our manufacturing partner facilities meet the highest international benchmarks. Every batch tested and documented to the same level as medicines produced for European markets. Verified, certifiable, consistent.",
+    desc: "Our manufacturing partner facilities meet the highest international benchmarks. Every batch tested and documented to the same level as medicines produced for European markets. Verified, certifiable, consistent.",
   },
   {
     icon: Sprout,
     color: "#9DCD4A",
     bg: "rgba(157,205,74,0.15)",
     title: "Pure Ingredients. Rigorous Standards.",
-    desc:
-      "Every raw material comes from approved, validated suppliers. Every ingredient is tested before production begins. What is on the label is exactly what is inside — transparent, traceable, and trustworthy.",
+    desc: "Every raw material comes from approved, validated suppliers. Every ingredient is tested before production begins. What is on the label is exactly what is inside — transparent, traceable, and trustworthy.",
   },
   {
     icon: DollarSign,
     color: "#F2C14E",
     bg: "rgba(242,193,78,0.18)",
     title: "Affordable and Accessible",
-    desc:
-      "We structure our supply chain to keep costs lean — working directly with certified manufacturers — so quality medicines remain genuinely accessible to the people and healthcare systems we serve.",
+    desc: "We structure our supply chain to keep costs lean — working directly with certified manufacturers — so quality medicines remain genuinely accessible to the people and healthcare systems we serve.",
   },
   {
     icon: ClipboardCheck,
     color: "#7A1F7A",
     bg: "rgba(122,31,122,0.10)",
     title: "Regulatory Expertise in Every Market",
-    desc:
-      "Our regulatory affairs team manages product dossiers, import approvals, and compliance documentation across all 20+ markets. Your supply chain stays compliant. We take care of the regulatory complexity.",
+    desc: "Our regulatory affairs team manages product dossiers, import approvals, and compliance documentation across all 20+ markets. Your supply chain stays compliant. We take care of the regulatory complexity.",
   },
   {
     icon: Globe,
     color: "#62C7F5",
     bg: "rgba(98,199,245,0.16)",
     title: "Present on the Ground, Every Day",
-    desc:
-      "In Ghana alone: 15 medical representatives, 12 sales professionals, 6 supply vans, and reach into 1,850+ pharmacies and 450+ hospitals. Real infrastructure. Real presence. Real people every day.",
+    desc: "In Ghana alone: 15 medical representatives, 12 sales professionals, 6 supply vans, and reach into 1,850+ pharmacies and 450+ hospitals. Real infrastructure. Real presence. Real people every day.",
   },
   {
     icon: Handshake,
     color: "#E84D6C",
     bg: "rgba(232,77,108,0.12)",
     title: "Long-Term Partnerships, Built for Growth",
-    desc:
-      "Our founder personally co-owns distribution companies in Ghana. When our partners succeed, we succeed. We are committed to the long haul — investing in shared growth that lasts.",
+    desc: "Our founder personally co-owns distribution companies in Ghana. When our partners succeed, we succeed. We are committed to the long haul — investing in shared growth that lasts.",
   },
 ];
 
@@ -100,13 +94,13 @@ export default function WhatSetsApart() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#12233D]/40 via-transparent to-transparent" />
 
-              {/* Floating chip — top right */}
+              {/* Floating chip — top right ✅ hidden on mobile */}
               <motion.div
                 initial={{ opacity: 0, x: 14 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.55 }}
-                className="absolute top-6 right-6 bg-white border border-[#E9EEF5] rounded-2xl px-4 py-3 shadow-xl flex items-center gap-2.5 animate-float-slow"
+                className="hidden lg:flex absolute top-6 right-6 bg-white border border-[#E9EEF5] rounded-2xl px-4 py-3 shadow-xl items-center gap-2.5 animate-float-slow"
               >
                 <div className="w-9 h-9 rounded-xl bg-[#9DCD4A]/20 flex items-center justify-center">
                   <ShieldCheck className="w-4 h-4 text-[#5e8722]" />
@@ -121,13 +115,13 @@ export default function WhatSetsApart() {
                 </div>
               </motion.div>
 
-              {/* Floating chip — middle left */}
+              {/* Floating chip — middle left ✅ hidden on mobile */}
               <motion.div
                 initial={{ opacity: 0, x: -14 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: 0.15 }}
-                className="absolute top-1/2 -translate-y-1/2 -left-4 md:-left-6 bg-white border border-[#E9EEF5] rounded-2xl px-4 py-3 shadow-xl flex items-center gap-2.5"
+                className="hidden lg:flex absolute top-1/2 -translate-y-1/2 -left-4 md:-left-6 bg-white border border-[#E9EEF5] rounded-2xl px-4 py-3 shadow-xl items-center gap-2.5"
               >
                 <div className="w-9 h-9 rounded-xl bg-[#F2C14E]/25 flex items-center justify-center">
                   <Award className="w-4 h-4 text-[#9c7611]" />
@@ -142,13 +136,13 @@ export default function WhatSetsApart() {
                 </div>
               </motion.div>
 
-              {/* Floating chip — bottom right */}
+              {/* Floating chip — bottom right ✅ hidden on mobile */}
               <motion.div
                 initial={{ opacity: 0, y: 14 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: 0.25 }}
-                className="absolute bottom-6 right-6 bg-white border border-[#E9EEF5] rounded-2xl px-4 py-3 shadow-xl flex items-center gap-2.5 animate-float-slow"
+                className="hidden lg:flex absolute bottom-6 right-6 bg-white border border-[#E9EEF5] rounded-2xl px-4 py-3 shadow-xl items-center gap-2.5 animate-float-slow"
               >
                 <div className="w-9 h-9 rounded-xl bg-[#E84D6C]/15 flex items-center justify-center">
                   <TrendingUp className="w-4 h-4 text-[#E84D6C]" />
@@ -163,13 +157,13 @@ export default function WhatSetsApart() {
                 </div>
               </motion.div>
 
-              {/* Floating chip — bottom left */}
+              {/* Floating chip — bottom left ✅ hidden on mobile */}
               <motion.div
                 initial={{ opacity: 0, x: -14 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: 0.35 }}
-                className="absolute bottom-20 left-4 md:left-6 bg-white border border-[#E9EEF5] rounded-2xl px-4 py-3 shadow-xl flex items-center gap-2.5"
+                className="hidden lg:flex absolute bottom-20 left-4 md:left-6 bg-white border border-[#E9EEF5] rounded-2xl px-4 py-3 shadow-xl items-center gap-2.5"
               >
                 <div className="w-9 h-9 rounded-xl bg-[#7A1F7A]/15 flex items-center justify-center">
                   <Factory className="w-4 h-4 text-[#7A1F7A]" />
@@ -215,9 +209,7 @@ export default function WhatSetsApart() {
                       ? "border-transparent shadow-[0_18px_50px_rgba(7,56,166,0.10)]"
                       : "border-[#E9EEF5] hover:border-[#0738A6]/30"
                   }`}
-                  style={
-                    isOpen ? { borderColor: `${it.color}40` } : undefined
-                  }
+                  style={isOpen ? { borderColor: `${it.color}40` } : undefined}
                 >
                   <button
                     data-testid={`accordion-toggle-${i}`}
