@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Pill } from "lucide-react";
 
-const tabs = ["All Products", "MDI Inhalers", "Oncology", "Critical Care", "Biologicals"];
+const tabs = ["All Products", "MDI Inhalers", "Oncology", "Critical Care", "Biologicals", "SUBRAT"];
 
 const products = [
   {
