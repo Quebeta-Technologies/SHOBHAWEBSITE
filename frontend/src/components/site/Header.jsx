@@ -64,7 +64,7 @@ export default function Header() {
             </span>
             <span className="hidden lg:inline-flex items-center gap-1.5">
               <Mail className="w-3 h-3 text-[#9DCD4A]" />
-              prarthana.m@outlook.com
+              admin@shobha-healthcare.com
             </span>
             <span className="inline-flex items-center gap-1.5">
               <MapPin className="w-3 h-3 text-[#F2C14E]" />
